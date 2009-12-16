@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy
+END
+XHTML.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy/XHTML.php
+END
+Name.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy/Name.php
+END
+Proprietary.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy/Proprietary.php
+END
+Transitional.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy/Transitional.php
+END
+Strict.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy/Strict.php
+END
+XHTMLAndHTML4.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/HTMLModule/Tidy/XHTMLAndHTML4.php
+END

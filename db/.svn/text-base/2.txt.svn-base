@@ -1,0 +1,8 @@
+ALTER TABLE `users` ADD COLUMN `name` VARCHAR(255) NOT NULL AFTER `password`,
+ ADD COLUMN `email` VARCHAR(255) NOT NULL AFTER `name`,
+ ADD COLUMN `points` INTEGER UNSIGNED NOT NULL AFTER `email`,
+ ADD COLUMN `moderator` INTEGER UNSIGNED NOT NULL AFTER `points`;
+ ALTER TABLE `users` DROP COLUMN `username`;
+
+ALTER TABLE `users` ADD COLUMN `created` DATETIME NOT NULL AFTER `moderator`,
+ ADD COLUMN `lastactivity` DATETIME NOT NULL AFTER `created`;

@@ -1,0 +1,113 @@
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform
+END
+Input.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Input.php
+END
+SafeParam.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/SafeParam.php
+END
+BdoDir.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/BdoDir.php
+END
+ScriptRequired.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/ScriptRequired.php
+END
+SafeObject.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/SafeObject.php
+END
+BoolToCSS.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/BoolToCSS.php
+END
+SafeEmbed.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/SafeEmbed.php
+END
+Textarea.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Textarea.php
+END
+Border.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Border.php
+END
+ImgRequired.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/ImgRequired.php
+END
+NameSync.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/NameSync.php
+END
+Background.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Background.php
+END
+EnumToCSS.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/EnumToCSS.php
+END
+Name.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Name.php
+END
+Lang.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Lang.php
+END
+Length.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/Length.php
+END
+BgColor.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/BgColor.php
+END
+ImgSpace.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/AttrTransform/ImgSpace.php
+END

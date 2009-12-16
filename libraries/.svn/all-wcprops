@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 39
+/svn/qwench/!svn/ver/27/trunk/libraries
+END
+score.php
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/qwench/!svn/ver/23/trunk/libraries/score.php
+END
+pagination.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/qwench/!svn/ver/9/trunk/libraries/pagination.class.php
+END
+template.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/svn/qwench/!svn/ver/16/trunk/libraries/template.class.php
+END
+markdown.php
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/svn/qwench/!svn/ver/10/trunk/libraries/markdown.php
+END
+helper.class.php
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/svn/qwench/!svn/ver/6/trunk/libraries/helper.class.php
+END
+timeago.php
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/svn/qwench/!svn/ver/18/trunk/libraries/timeago.php
+END
+shared.php
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/qwench/!svn/ver/27/trunk/libraries/shared.php
+END

@@ -1,0 +1,599 @@
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema
+END
+Attr.DefaultTextDir.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.DefaultTextDir.txt
+END
+Core.AggressivelyFixLt.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.AggressivelyFixLt.txt
+END
+URI.MungeResources.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.MungeResources.txt
+END
+URI.HostBlacklist.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.HostBlacklist.txt
+END
+URI.DefaultScheme.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.DefaultScheme.txt
+END
+Filter.ExtractStyleBlocks.TidyImpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.TidyImpl.txt
+END
+Test.ForceNoIconv.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Test.ForceNoIconv.txt
+END
+Core.CollectErrors.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.CollectErrors.txt
+END
+HTML.Doctype.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Doctype.txt
+END
+CSS.MaxImgLength.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/CSS.MaxImgLength.txt
+END
+AutoFormat.RemoveEmpty.RemoveNbsp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.txt
+END
+Core.EscapeNonASCIICharacters.txt
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.EscapeNonASCIICharacters.txt
+END
+Cache.DefinitionImpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Cache.DefinitionImpl.txt
+END
+Attr.EnableID.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.EnableID.txt
+END
+Filter.ExtractStyleBlocks.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.txt
+END
+Core.HiddenElements.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.HiddenElements.txt
+END
+Output.TidyFormat.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Output.TidyFormat.txt
+END
+AutoFormat.PurifierLinkify.DocURL.txt
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.DocURL.txt
+END
+AutoFormat.DisplayLinkURI.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.DisplayLinkURI.txt
+END
+HTML.Proprietary.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Proprietary.txt
+END
+HTML.CoreModules.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.CoreModules.txt
+END
+AutoFormat.Linkify.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.Linkify.txt
+END
+Attr.ClassUseCDATA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.ClassUseCDATA.txt
+END
+HTML.Allowed.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Allowed.txt
+END
+HTML.TidyRemove.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.TidyRemove.txt
+END
+CSS.DefinitionRev.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/CSS.DefinitionRev.txt
+END
+Core.ColorKeywords.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.ColorKeywords.txt
+END
+URI.AllowedSchemes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.AllowedSchemes.txt
+END
+URI.OverrideAllowedSchemes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.OverrideAllowedSchemes.txt
+END
+HTML.BlockWrapper.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.BlockWrapper.txt
+END
+Attr.IDPrefixLocal.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefixLocal.txt
+END
+Attr.DefaultImageAlt.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.DefaultImageAlt.txt
+END
+CSS.AllowImportant.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/CSS.AllowImportant.txt
+END
+Filter.ExtractStyleBlocks.Escaping.txt
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Escaping.txt
+END
+Core.EscapeInvalidChildren.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidChildren.txt
+END
+HTML.SafeObject.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.SafeObject.txt
+END
+Attr.DefaultInvalidImageAlt.txt
+K 25
+svn:wc:ra_dav:version-url
+V 113
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImageAlt.txt
+END
+Attr.IDBlacklistRegexp.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklistRegexp.txt
+END
+URI.MakeAbsolute.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.MakeAbsolute.txt
+END
+URI.Host.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.Host.txt
+END
+Core.Encoding.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.Encoding.txt
+END
+HTML.SafeEmbed.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.SafeEmbed.txt
+END
+Attr.AllowedClasses.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.AllowedClasses.txt
+END
+Attr.IDPrefix.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.IDPrefix.txt
+END
+HTML.AllowedModules.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.AllowedModules.txt
+END
+HTML.AllowedElements.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.AllowedElements.txt
+END
+Core.RemoveInvalidImg.txt
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.RemoveInvalidImg.txt
+END
+AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.RemoveNbsp.Exceptions.txt
+END
+AutoFormat.PurifierLinkify.txt
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.PurifierLinkify.txt
+END
+AutoFormat.RemoveEmpty.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.RemoveEmpty.txt
+END
+Output.Newline.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Output.Newline.txt
+END
+HTML.AllowedAttributes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.AllowedAttributes.txt
+END
+URI.DefinitionRev.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.DefinitionRev.txt
+END
+URI.DefinitionID.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.DefinitionID.txt
+END
+Output.CommentScriptContents.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Output.CommentScriptContents.txt
+END
+Attr.AllowedFrameTargets.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.AllowedFrameTargets.txt
+END
+HTML.CustomDoctype.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.CustomDoctype.txt
+END
+HTML.ForbiddenAttributes.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenAttributes.txt
+END
+CSS.Proprietary.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/CSS.Proprietary.txt
+END
+Attr.DefaultInvalidImage.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.DefaultInvalidImage.txt
+END
+URI.Base.txt
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.Base.txt
+END
+HTML.DefinitionID.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionID.txt
+END
+Core.EscapeInvalidTags.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.EscapeInvalidTags.txt
+END
+Attr.ForbiddenClasses.txt
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.ForbiddenClasses.txt
+END
+HTML.Attr.Name.UseCDATA.txt
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Attr.Name.UseCDATA.txt
+END
+Filter.ExtractStyleBlocks.Scope.txt
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Filter.ExtractStyleBlocks.Scope.txt
+END
+HTML.MaxImgLength.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.MaxImgLength.txt
+END
+Core.LexerImpl.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.LexerImpl.txt
+END
+Cache.SerializerPath.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Cache.SerializerPath.txt
+END
+AutoFormat.Custom.txt
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.Custom.txt
+END
+Core.MaintainLineNumbers.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.MaintainLineNumbers.txt
+END
+CSS.AllowTricky.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/CSS.AllowTricky.txt
+END
+CSS.AllowedProperties.txt
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/CSS.AllowedProperties.txt
+END
+HTML.Parent.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Parent.txt
+END
+Core.ConvertDocumentToFragment.txt
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.ConvertDocumentToFragment.txt
+END
+Filter.Custom.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Filter.Custom.txt
+END
+Attr.IDBlacklist.txt
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.IDBlacklist.txt
+END
+URI.DisableExternalResources.txt
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.DisableExternalResources.txt
+END
+URI.Disable.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.Disable.txt
+END
+Attr.AllowedRel.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRel.txt
+END
+HTML.TidyLevel.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.TidyLevel.txt
+END
+URI.DisableExternal.txt
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.DisableExternal.txt
+END
+HTML.DefinitionRev.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.DefinitionRev.txt
+END
+URI.Munge.txt
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.Munge.txt
+END
+Core.Language.txt
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.Language.txt
+END
+HTML.Strict.txt
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Strict.txt
+END
+Attr.AllowedRev.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Attr.AllowedRev.txt
+END
+AutoFormat.AutoParagraph.txt
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/AutoFormat.AutoParagraph.txt
+END
+Filter.YouTube.txt
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Filter.YouTube.txt
+END
+Output.SortAttr.txt
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Output.SortAttr.txt
+END
+HTML.TidyAdd.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.TidyAdd.txt
+END
+Core.RemoveScriptContents.txt
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.RemoveScriptContents.txt
+END
+URI.MungeSecretKey.txt
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.MungeSecretKey.txt
+END
+info.ini
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/info.ini
+END
+HTML.ForbiddenElements.txt
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.ForbiddenElements.txt
+END
+URI.DisableResources.txt
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/URI.DisableResources.txt
+END
+Core.DirectLexLineNumberSyncInterval.txt
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/Core.DirectLexLineNumberSyncInterval.txt
+END
+HTML.Trusted.txt
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.Trusted.txt
+END
+HTML.XHTML.txt
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/ConfigSchema/schema/HTML.XHTML.txt
+END

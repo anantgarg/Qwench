@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector
+END
+PurifierLinkify.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector/PurifierLinkify.php
+END
+RemoveEmpty.php
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector/RemoveEmpty.php
+END
+AutoParagraph.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector/AutoParagraph.php
+END
+DisplayLinkURI.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector/DisplayLinkURI.php
+END
+Linkify.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector/Linkify.php
+END
+SafeObject.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier/Injector/SafeObject.php
+END

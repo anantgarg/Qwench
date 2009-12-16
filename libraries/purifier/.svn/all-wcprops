@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier
+END
+HTMLPurifier.php
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.php
+END
+HTMLPurifier.safe-includes.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.safe-includes.php
+END
+HTMLPurifier.kses.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.kses.php
+END
+HTMLPurifier.includes.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.includes.php
+END
+HTMLPurifier.auto.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.auto.php
+END
+HTMLPurifier.autoload.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.autoload.php
+END
+HTMLPurifier.func.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.func.php
+END
+HTMLPurifier.path.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/qwench/!svn/ver/16/trunk/libraries/purifier/HTMLPurifier.path.php
+END
