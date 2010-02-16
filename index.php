@@ -12,6 +12,7 @@ define('DS',DIRECTORY_SEPARATOR);
 
 /* Get Basic Details */
 
+if (isset($_SERVER['PATH_INFO']))
 $path = explode("/", substr($_SERVER['PATH_INFO'],1));
 
 $controller = 'questions';
