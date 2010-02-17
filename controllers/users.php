@@ -71,6 +71,7 @@ function validate() {
 		$_SESSION['email'] = $user['email'];
 		$_SESSION['password'] = $user['password'];
 		$_SESSION['points'] = $user['points'];
+		$_SESSION['moderator'] = $user['moderator'];
 
 		if (!empty($_POST['returnurl'])) {
 			$url = sanitize($_POST['returnurl'],"url");
@@ -122,7 +123,7 @@ function index() {
 	$users = array();
 	
 	while ($result = mysql_fetch_array($query)) {
-		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points']);
+		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points'], "moderator" => $result['moderator']);
 	}
 
 	$template->set('users',$users);

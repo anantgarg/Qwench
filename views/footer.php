@@ -7,7 +7,9 @@
 	<div class="userlogin">
 		<div style="float:left"><img src="http://www.gravatar.com/avatar/<?php echo md5(trim(strtolower($_SESSION['email'])));?>?d=monsterid&s=70" style="border:1px solid #ccc"></div><div style="float:left;padding-left:10px;"><h3 style="padding-left:0px"><?php echo $_SESSION['name'];?> | <?php echo $_SESSION['points'];?></h3>
 		<a href="<?php echo basePath();?>/users/edit">Edit Profile</a><br/>
+		<?php if($_SESSION['moderator']==1) printf("<a href=\"". basePath() . "/admin\">Admin Pannel</a><br>");?>
 		<a href="<?php echo basePath();?>/users/logout">Logout</a></div>
+		
 		<div style="clear:both"></div>
 	</div>
 <?php else:?>
