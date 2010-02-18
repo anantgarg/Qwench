@@ -474,7 +474,7 @@ EOD;
 
 <script>
 
-	var basePath = "/qwench/index.php";
+	var basePath = "$basePathNS";
 
 
 	function vote(elem,type,voted) {

@@ -72,7 +72,10 @@ function validate() {
 		$_SESSION['password'] = $user['password'];
 		$_SESSION['points'] = $user['points'];
 		$_SESSION['moderator'] = $user['moderator'];
-
+		
+		$sql = ("update users set lastactivity = '".escape(date("Y-m-d H:i:s"))."' where id = '".escape($_SESSION['userid'])."'");
+		$query = mysql_query($sql);
+		
 		if (!empty($_POST['returnurl'])) {
 			$url = sanitize($_POST['returnurl'],"url");
 			header("Location: {$url}");
@@ -123,7 +126,7 @@ function index() {
 	$users = array();
 	
 	while ($result = mysql_fetch_array($query)) {
-		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points'], "moderator" => $result['moderator']);
+		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points'], "moderator" => $result['moderator'],"created" => $result['created'],"lastactivity" => $result['lastactivity'] );
 	}
 
 	$template->set('users',$users);

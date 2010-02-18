@@ -649,6 +649,19 @@ pre {
 	text-align:left;
 }
 
+
+.summaryinfo {
+	color:#808185;
+	text-align:center;
+}
+
+.summarycount {
+	text-align:center;
+	color:#808185;
+	font-size:350%;
+	font-weight:bold;
+}
+
 #alert {
 	overflow: hidden;
 	width: 100%;
