@@ -27,7 +27,7 @@ function cform() {
 
 <div class="questionsview_details"><span style="color:#999"><?php echo timeAgo(strtotime($created));?></span></div>
 
-<?php if ($userid == $_SESSION['userid']):?>
+<?php if ($userid == $_SESSION['userid'] || $_SESSION['moderator']=1):?>
 <div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>">edit</a></div>
 <?php endif;?>
  
