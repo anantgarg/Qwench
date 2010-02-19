@@ -1,4 +1,4 @@
-Qwench
+Qwench - Diablo512
 Copyright (c) 2009-2010 Inscripts
 
 Installation Instructions
