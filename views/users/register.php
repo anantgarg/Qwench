@@ -46,13 +46,13 @@ function cform() {
 
 <h1>Register</h1>
 
-<h3>Name</h3>
+<h3>Name*</h3>
 <input type="textbox" class="textbox" name="name" id="name"/><br/>
 
-<h3>E-mail</h3>
+<h3>E-mail*</h3>
 <input type="textbox" class="textbox" name="email" id="email"/><br/>
 
-<h3>Password</h3>
+<h3>Password*</h3>
 <input type="password" class="textbox" name="password" id="password"/>
 
 <h3>Website</h3>

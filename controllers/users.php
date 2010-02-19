@@ -39,13 +39,17 @@ function update() {
 	$email = sanitize($_POST['email'],"email");
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
-	
+	$website = sanitize($_POST['website'],"website");
+	$realname = sanitize($_POST['realname'],"realname");
+	$location = sanitize($_POST['location'],"location");
+	$birthday = sanitize($_POST['birthday'],"birthday");
+
 	if (!empty($_POST['password'])) {
 		$sql = ("update users set password = '".escape($password)."' where id = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
 	}
 
-	$sql = ("update users set name = '".escape($name)."', email = '".escape($email)."' where id = '".escape($_SESSION['userid'])."'");
+	$sql = ("update users set name = '".escape($name)."',email = '".escape($email)."' , website = '".escape($website)."', realname = '".escape($realname)."', location = '".escape($location)."', birthday = '".escape($birthday)."' where id = '".escape($_SESSION['userid'])."'");
 	$query = mysql_query($sql);
 
 	$slug = createslug($name);
@@ -72,22 +76,24 @@ function validate() {
 		$_SESSION['password'] = $user['password'];
 		$_SESSION['points'] = $user['points'];
 		$_SESSION['moderator'] = $user['moderator'];
+		$_SESSION['location'] = $user['location'];
+		$_SESSION['realname'] = $user['realname'];
 		
-		$sql = ("update users set lastactivity = '".escape(date("Y-m-d H:i:s"))."' where id = '".escape($_SESSION['userid'])."'");
+$sql = ("update users set lastactivity = '".escape(date("Y-m-d H:i:s"))."' where id = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
-		
+ 
 		if (!empty($_POST['returnurl'])) {
 			$url = sanitize($_POST['returnurl'],"url");
 			header("Location: {$url}");
 		}  else {
-
+ 
 			header("Location: $basePath");
 		}
 	} else {
 		header("Location: $basePath/users/login");
 	}
 }
-
+ 
 function register() {
 
 }
@@ -126,7 +132,7 @@ function index() {
 	$users = array();
 	
 	while ($result = mysql_fetch_array($query)) {
-		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points'], "moderator" => $result['moderator'],"created" => $result['created'],"lastactivity" => $result['lastactivity'] );
+		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points'], "moderator" => $result['moderator']);
 	}
 
 	$template->set('users',$users);

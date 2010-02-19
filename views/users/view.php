@@ -62,9 +62,7 @@
                         
                         <tr>
                             <td>location</td>
-
-                            <td class="label adr">
-                                
+                            <td style="width:230px" ><?php echo $user['location'];?></td>
                             </td>
                         </tr>
                         <tr>
@@ -84,6 +82,4 @@
                 </td>
             </tr>
         </table>
-
-
 

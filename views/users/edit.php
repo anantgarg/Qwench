@@ -37,16 +37,29 @@ function cform() {
 <h1>Edit Profile</h1>
 
 <h3>Name</h3>
-<input type="textbox" class="textbox" name="name" id="name" value="<?php echo $user['name'];?>"/><br/>
+<input type="textbox" class="textbox" style="width:500px" name="name" id="name" value="<?php echo $user['name'];?>"/><br/>
 
 <h3>E-mail</h3>
-<input type="textbox" class="textbox" name="email" id="email" value="<?php echo $user['email'];?>"/><br/>
+<input type="textbox" class="textbox" style="width:500px" name="email" id="email" value="<?php echo $user['email'];?>"/><br/>
 
 <h3>Website</h3>
-<input type="textbox" class="textbox" name="website" id="website" value="<?php echo $user['website'];?>"/><br/>
+<input type="textbox" class="textbox" style="width:500px" name="website" id="website" value="<?php echo $user['website'];?>"/><br/>
 
+<h3>Real Name</h3> 
+<input type="textbox" class="textbox" style="width:500px" name="realname" value="<?php echo $user['realname'];?>" /><br/>
+
+<h3>Location</h3> 
+<input type="textbox" class="textbox" style="width:500px" name="location" value="<?php echo $user['location'];?>" /><br/>
+
+<h3>Birthday <span style="font-size:10px">(YYYY/MM/DD never displayed, used to show age)</span></h3> 
+<input type="textbox" class="textbox" style="width:500px" name="birthday" value="<?php echo $user['birthday'];?>" /><br/>
+
+
+<h3>About Me</h3>
+<textarea cols="55" class="textbox" style="width:500px" id="AboutMe" name="AboutMe" rows="12"></textarea>
+                     
 <h3>Password <span style="font-size:10px">(Leave blank if you do not want to update)</span></h3> 
-<input type="password" class="textbox" name="password" id="password" value=""/></select>
+<input type="password" class="textbox" style="width:500px" name="password" id="password" value=""/>
 
 <br/><br/>
 <input type="submit" value="Update Profile" class="button">
