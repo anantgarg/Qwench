@@ -53,7 +53,10 @@ function cform() {
 <input type="textbox" class="textbox" name="email" id="email"/><br/>
 
 <h3>Password</h3>
-<input type="password" class="textbox" name="password" id="password"/></select>
+<input type="password" class="textbox" name="password" id="password"/>
+
+<h3>Website</h3>
+<input type="textbox" class="textbox" name="website" id="website"/><br/></select>
 
 <br/><br/>
 <input type="submit" value="Register" class="button">

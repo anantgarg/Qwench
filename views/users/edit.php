@@ -42,6 +42,9 @@ function cform() {
 <h3>E-mail</h3>
 <input type="textbox" class="textbox" name="email" id="email" value="<?php echo $user['email'];?>"/><br/>
 
+<h3>Website</h3>
+<input type="textbox" class="textbox" name="website" id="website" value="<?php echo $user['website'];?>"/><br/>
+
 <h3>Password <span style="font-size:10px">(Leave blank if you do not want to update)</span></h3> 
 <input type="password" class="textbox" name="password" id="password" value=""/></select>
 
