@@ -12,7 +12,7 @@
 <script src="<?php echo basePathNS();?>/js/tagscomplete.js"></script>
 <script src="<?php echo basePathNS();?>/js/fancyalert.js"></script>
 
-
+<script> var active = 0; </script>
 <script type="text/javascript" src="<?php echo basePathNS();?>/js/prettify/prettify.js"></script>
 
 <link href="<?php echo basePathNS();?>/css/prettify.css" type="text/css" rel="stylesheet" />
@@ -23,13 +23,16 @@
 <body onload="prettyPrint()">
 <div id="navigation"><div class="navcenter">
 
-<form action="<?php echo basePath();?>/questions" method="get" style="float:left;width:420px;text-align:left;"><input type="textbox" name="search" style="color: #999" value="<?php if (!empty($searchstring)):?><?php echo $searchstring;?><?php endif?>"></form>
+<form action="<?php echo basePath();?>/questions" method="get" style="float:left;width:420px;text-align:left;"><input type="textbox" name="search" style="color: #999"  value="Search" onClick="if (!active) { this.value=''; active = 1; }"></form>
 
 <div style="float:right;border-left: 1px solid #13a1c9;border-right: 1px solid #45c9e9;"><ol><li><a href="<?php echo basePath();?>">Home</a></li><li><a href="<?php echo basePath();?>/questions">Questions</a></li><li><a href="<?php echo basePath();?>/tags">Tags</a></li><li><a href="<?php echo basePath();?>/users">Users</a></li><li><a href="<?php echo basePath();?>/questions?type=unanswered">Unanswered</a></li><li><a href="<?php echo basePath();?>/questions/ask">Ask or Contribute</a></li></ol></div>
 
 </div>
-<div style="clear:both"></div>
+<div style="clear:both"></div><!-- 
 </div>
-
+<div style="position: absolute; left: 8%;">
+ <a href="<?php echo basePathNS();?>"><img src="<?php echo basePathNS();?>/img/logoheap.png" alt="Heap Overflow"></a> 
+-->
+</div> 
 <div id="container">
 	<div id="leftpanel">
