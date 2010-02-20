@@ -261,6 +261,8 @@ return $res;
 }
 
 function age($data){
+if($data=="0000-00-00")
+	return;
 $pz=explode("-",$data);
 $day=$pz[2];
 $month=$pz[1];
