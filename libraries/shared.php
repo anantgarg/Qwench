@@ -78,7 +78,7 @@ function sanitize($input,$type = "old") {
 	break;
 
 	case "comment":
-		$input = htmlentities($input, ENT_QUOTES);
+		$input = htmlentities($input, ENT_QUOTES, "UTF-8");
 	break;
 
 	case "old":
