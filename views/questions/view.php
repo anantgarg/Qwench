@@ -27,7 +27,7 @@ function cform() {
 
 <div class="questionsview_details"><span style="color:#999"><?php echo timeAgo(strtotime($created));?></span></div>
 
-<?php if ($userid == $_SESSION['userid'] || $_SESSION['moderator']=1):?>
+<?php if ($userid == $_SESSION['userid'] || $_SESSION['moderator']==1):?>
 <div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>">edit</a></div>
 <?php endif;?>
  
@@ -64,7 +64,7 @@ function cform() {
 <div class="comment">
 <div class="comment_text"><?php echo $comment['comment'];?> - <a href="<?php echo basePath();?>/users/<?php echo $comment['userid'];?>/<?php echo $comment['username'];?>"><?php echo $comment['username'];?></a></div>
 
-<div class="commentdel" id="commentdel_<?php echo $comment['id'];?>"><?php if ($comment['userid'] == $_SESSION['userid']) { echo "x"; }?></div>
+<div class="commentdel" id="commentdel_<?php echo $comment['id'];?>"><?php if ($comment['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1) { echo "x"; }?></div>
 
 <div class="commentfave <?php if ($comment['voted'] > 0) { echo "voteselected"; }?>" id="commentfave_<?php echo $comment['id'];?>">♥</div><div class="commentfavevotes"><?php if ($comment['votes'] != 0) { echo $comment['votes']; }?></div>
 <div style="clear:both;"></div>
@@ -116,7 +116,7 @@ function cform() {
 <div class="questionsview_details"><span style="color:#999"><?php echo timeAgo(strtotime($answer['created']));?></span>
 </div>
 
-<?php if ($answer['userid'] == $_SESSION['userid']):?>
+<?php if ($answer['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1):?>
 <div class="questionsview_options"><a href="<?php echo basePath();?>/answers/edit/<?php echo $answer['id'];?>">edit</a></div>
 <?php endif;?>
 
@@ -125,7 +125,7 @@ function cform() {
 <div class="questionsview_accepted">
 Accepted Answer</span>
 </div>
-<?php elseif($userid == $_SESSION['userid']):?>
+<?php elseif($userid == $_SESSION['userid'] || $_SESSION['moderator']==1):?>
 <div class="questionsview_accept">
 <a href="<?php echo basePath();?>/answers/accept?id=<?php echo $answer['id'];?>">Accept this answer</a>
 </div>
@@ -150,7 +150,7 @@ Accepted Answer</span>
 <div class="comment">
 <div class="comment_text"><?php echo $comment['comment'];?> - <a href="<?php echo basePath();?>/users/<?php echo $comment['userid'];?>/<?php echo $comment['username'];?>"><?php echo $comment['username'];?></a></div>
 
-<div class="commentdel" id="commentdel_<?php echo $comment['id'];?>"><?php if ($comment['userid'] == $_SESSION['userid']) { echo "x"; }?></div>
+<div class="commentdel" id="commentdel_<?php echo $comment['id'];?>"><?php if ($comment['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1) { echo "x"; }?></div>
 
 <div class="commentfave <?php if ($comment['voted'] > 0) { echo "voteselected"; }?>" id="commentfave_<?php echo $comment['id'];?>">♥</div><div class="commentfavevotes"><?php if ($comment['votes'] != 0) { echo $comment['votes']; }?></div>
 <div style="clear:both;"></div>
