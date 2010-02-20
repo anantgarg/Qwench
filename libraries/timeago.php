@@ -259,3 +259,16 @@ break;
 }
 return $res;
 }
+
+function age($data){
+$pz=explode("-",$data);
+$day=$pz[2];
+$month=$pz[1];
+$year=$pz[0];
+$dayO = date("j"); 
+$monthO = date("n"); 
+$yearO = date("Y"); 
+$dateDiff = mktime(12,0,0,$monthO,$dayO,$yearO) - mktime(12,0,0,$month,$day,$year);
+$dateDiff  = floor($dateDiff/60/60/24/365);
+return $dateDiff;
+}
