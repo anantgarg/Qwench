@@ -39,9 +39,9 @@ function update() {
 	$email = sanitize($_POST['email'],"email");
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
-	$website = sanitize($_POST['website'],"website");
-	$realname = sanitize($_POST['realname'],"realname");
-	$location = sanitize($_POST['location'],"location");
+	$website = sanitize($_POST['website'],"string");
+	$realname = sanitize($_POST['realname'],"string");
+	$location = sanitize($_POST['location'],"string");
 	$birthday = sanitize($_POST['birthday'],"birthday");
 
 	if (!empty($_POST['password'])) {
