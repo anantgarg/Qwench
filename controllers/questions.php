@@ -474,7 +474,7 @@ EOD;
 
 <script>
 
-	var basePath = "$basePathNS";
+	var basePath = "$basePathNS/index.php";
 
 
 	function vote(elem,type,voted) {
