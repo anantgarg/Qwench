@@ -26,7 +26,7 @@
                     </table>
                 </td>
                 <!--cell-->
-                <td style="vertical-align: top; width:350px">
+                <td style="vertical-align: top; width:500px">
                     <div style="float: right; margin-top: 19px; margin-right: 4px">
                         
                     </div>
@@ -34,8 +34,8 @@
                     <h2 style="margin-top:20px">Registered User</h2>
                     <table class="user-details">
                         <tr>
-                            <td style="width:120px">name</td>
-                            <td style="width:230px" class="fn nickname"><b><?php echo $user['name'];?></b></td>
+                            <td style="width:150px">name</td>
+                            <td style="width:230px"><b><?php echo $user['name'];?></b></td>
                         </tr>
                         <tr>
 
@@ -68,14 +68,19 @@
                             </td>
                         </tr>
 
-                        
+                        <tr>   <td style="width:100px"> 
+                     <tr> 
+                            <td style="width:120px">about me</td> 
+                            <td style="width:400px"><?php echo str_replace("\n","<br />", $user['aboutme']);?></td> 
+                        </tr> 
+                    
+                </td> 
+</tr> 
+              
                     </table>
                 </td>
                 <!--cell-->
-                <td style="width:390px">
-                    <div id="user-about-me" class="note"></div>
-                    
-                </td>
+                <td style="width:390px"></td>
             </tr>
         </table>
 

@@ -56,7 +56,7 @@ function cform() {
 
 
 <h3>About Me</h3>
-<textarea cols="55" class="textbox" style="width:500px" id="AboutMe" name="AboutMe" rows="12"></textarea>
+<textarea cols="55" class="textbox" style="width:500px" id="aboutme" name="aboutme" rows="12" ><?php echo $user['aboutme'];?></textarea>
                      
 <h3>Password <span style="font-size:10px">(Leave blank if you do not want to update)</span></h3> 
 <input type="password" class="textbox" style="width:500px" name="password" id="password" value=""/>
