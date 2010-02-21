@@ -3,10 +3,11 @@ function cform() {
 	var name = '';
 	var email = '';
 	var password = '';
+	var password2 = '';
 	name = $("#name").val();
 	email = $("#email").val();
 	password = $("#password").val();
- 
+	password2 = $("#password2").val();
 
 	if (name.length < 1 || name.length > 100) {
 		$("#name").addClass('textalert');
@@ -37,6 +38,17 @@ function cform() {
 	}
 
 
+	if  (password2 != password) {
+		$("#namepassword").addClass('textalert');
+		$.fancyalert('Please re-enter your password');
+		$("#password2").focus();
+		return false;
+	} else {
+		$("#password").removeClass('textalert');
+	}
+
+
+
 	return true;
 }
 </script>
@@ -54,8 +66,8 @@ function cform() {
 <h3>Password*</h3>
 <input type="password" class="textbox" name="password" id="password"/>
 
-<h3>Website</h3>
-<input type="textbox" class="textbox" name="website" id="website"/><br/></select>
+<h3>Repeat Password*</h3>
+<input type="password" class="textbox" name="password2" id="password2"/>
 
 <br/><br/>
 <input type="submit" value="Register" class="button">
