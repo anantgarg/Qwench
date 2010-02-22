@@ -84,6 +84,7 @@ EOD;
 	$template->set('description',$result['description']);
 	$template->set('link',$result['link']);
 	$template->set('kb',$result['kb']);
+	$template->set('notify',$result['notify']);
 
 	$sql = ("select tag from tags_questions, tags where questionid = '".escape($questionid)."' and tags.id = tags_questions.tagid order by tag");
 	$query = mysql_query($sql);
@@ -107,10 +108,12 @@ function post() {
 	$title = sanitize($_POST['title'],"string");
 	$description = sanitize($_POST['description'],"markdown");
 	$link = sanitize($_POST['link'],"url");
+	$notify = $_POST['notify'];
 	$slug = createSlug($title);
-	
+		
 	$kb = 0;
 
+	
 	if (!empty($_POST['answercheck'])) {
 		$kb = sanitize($_POST['answercheck'],"int");
 	}
@@ -125,7 +128,7 @@ function post() {
 		exit;
 	}
 
-	$sql = ("insert into questions (title,description,created,updated,link,userid,slug,linkcache,votes,accepted,answers,kb) values ('".escape($title)."','".escape($description)."',NOW(),NOW(),'".escape($link)."','".escape($_SESSION['userid'])."','".escape($slug)."','".escape($cache)."','0','0','0','".escape($kb)."')");
+	$sql = ("insert into questions (title,description,created,updated,link,userid,slug,linkcache,votes,accepted,answers,kb,notify) values ('".escape($title)."','".escape($description)."',NOW(),NOW(),'".escape($link)."','".escape($_SESSION['userid'])."','".escape($slug)."','".escape($cache)."','0','0','0','".escape($kb)."','".escape($notify)."')");
 	$query = mysql_query($sql);
 
 	$questionid = mysql_insert_id();
@@ -174,10 +177,10 @@ function update() {
 	$title = sanitize($_POST['title'],"string");
 	$description = sanitize($_POST['description'],"markdown");
 	$link = sanitize($_POST['link'],"url");
-
 	$slug = createSlug($title);
+	$notify = sanitize($_POST['notify'],'int');
 
-	$kb = 0;
+	$kb = 0;	
 
 	if (!empty($_POST['answercheck'])) {
 		$kb = sanitize($_POST['answercheck'],"int");
@@ -210,7 +213,7 @@ function update() {
 		score('kb_posted',$questionid);	
 	}
 
-	$sql = ("update questions set title = '".escape($title)."', kb = '".escape($kb)."', description = '".escape($description)."' , updated = NOW(), link = '".escape($link)."', slug = '".escape($slug)."' $cacheup where userid = '".escape($_SESSION['userid'])."' and id = '".escape($questionid)."'");
+	$sql = ("update questions set title = '".escape($title)."', kb = '".escape($kb)."', notify = '".escape($notify)."', description = '".escape($description)."' , updated = NOW(), link = '".escape($link)."', slug = '".escape($slug)."' $cacheup where userid = '".escape($_SESSION['userid'])."' and id = '".escape($questionid)."'");
 	$query = mysql_query($sql);
 	echo mysql_error();
 	 
@@ -282,6 +285,7 @@ function view() {
 	$template->set('created',$result['created']);
 	$template->set('description',Markdown($result['description']));
 	$template->set('kb',$result['kb']);
+
 
 	$template->set('link',$result['link']);
 

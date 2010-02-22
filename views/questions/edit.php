@@ -51,7 +51,9 @@ function cform() {
 <?php endforeach;?>
 </select>
 <br/>
-<input type="checkbox" id="answercheck" name="answercheck" value="1" tabindex="4" <?php if ($kb) { echo "checked"; }?>> Make this a knowledge-base article
+<input type="checkbox" id="answercheck" name="answercheck" value="1" tabindex="5" <?php if ($kb) { echo "checked"; }?>> Make this a knowledge-base article
+<br/>
+<input type="checkbox" id="notify" name="notify" value="1"  tabindex="6" <?php if ($notify) { echo "checked"; }?>> Notify me via email
 <br/><br/>
 <input type="hidden" name="id" value="<?php echo $questionid;?>">
 <input type="submit" value="Update" class="button">

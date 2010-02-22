@@ -58,7 +58,9 @@ function cform() {
 <h3>Tags</h3>
 <select class="textbox" name="tags" id="tags" tabindex="4"/></select>
 <br/>
-<input type="checkbox" id="answercheck" name="answercheck" value="1" onclick="fanswer();" tabindex="4"> Make this a knowledge-base article
+<input type="checkbox" id="answercheck" name="answercheck" value="1" onclick="fanswer();" tabindex="5"> Make this a knowledge-base article
+<br/>
+<input type="checkbox" id="notify" name="notify" value="1"  tabindex="6"> Notify me via email
 <br/><br/>
 <input type="submit" value="Ask Question" class="button" id="askquestion" tabindex="5">
 </form>

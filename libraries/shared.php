@@ -205,5 +205,15 @@ function truncate ($text, $length = 200, $ending = "...") {
 	} 
 }
 
+
+
+function sendEmail($userid) {
+
+	$sql = ("select email from users where id = '".$userid."'");
+	$query= mysql_query($sql) or die(mysql_error());
+	$result = mysql_fetch_array($query) or die(mysql_error());
+	mail($result['email'],"You received a response.","Someone has reply your question. Visit the site to see it");
+}
+
 db();
 authenticate();
