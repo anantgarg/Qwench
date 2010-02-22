@@ -45,8 +45,7 @@ $interval = "d";
 
 // If difference is between 1 week and 30 days
 // weeks is a good interval
-elseif($difference >= 60*60*24*7 && $difference <
-60*60*24*30)
+elseif($difference >= 60*60*24*7 && $difference <60*60*24*30)
 {
 $interval = "ww";
 }
@@ -104,17 +103,16 @@ if($datediff==12)
 $datediff--;
 }
 
-$res = ($datediff==1) ? "$datediff mnth" : "$datediff
-mnths";
-$res = datifyunix($datefrom);
+$res = ($datediff==1) ? "$datediff month" : "$datediff
+months";
+//$res = datifyunix($datefrom);
 break;
 
 case "y":
 $datediff = floor($difference / 60 / 60 / 24 / 365);
-$res = ($datediff==1) ? "$datediff yr" : "$datediff
-yrs";
-
-$res = datifyunix($datefrom);
+$res = ($datediff==1) ? "$datediff year" : "$datediff
+years";
+//$res = datifyunix($datefrom);
 break;
 
 case "d":
@@ -125,9 +123,9 @@ break;
 
 case "ww":
 $datediff = floor($difference / 60 / 60 / 24 / 7);
-$res = ($datediff==1) ? "$datediff wk" : "$datediff
-wks";
-$res = datifyunix($datefrom);
+$res = ($datediff==1) ? "$datediff week ago" : "$datediff
+weeks ago";
+//$res = datifyunix($datefrom);
 break;
 
 case "h":
@@ -274,3 +272,4 @@ $dateDiff = mktime(12,0,0,$monthO,$dayO,$yearO) - mktime(12,0,0,$month,$day,$yea
 $dateDiff  = floor($dateDiff/60/60/24/365);
 return $dateDiff;
 }
+
