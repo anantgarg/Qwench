@@ -39,17 +39,18 @@ function update() {
 	$email = sanitize($_POST['email'],"email");
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
-	$website = sanitize($_POST['website'],"string");
+	$website = sanitize($_POST['website'],"url");
 	$realname = sanitize($_POST['realname'],"string");
 	$location = sanitize($_POST['location'],"string");
 	$birthday = sanitize($_POST['birthday'],"birthday");
-
+	$aboutme = sanitize($_POST['aboutme'],"string");
+	
 	if (!empty($_POST['password'])) {
 		$sql = ("update users set password = '".escape($password)."' where id = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
 	}
 
-	$sql = ("update users set name = '".escape($name)."',email = '".escape($email)."' , website = '".escape($website)."', realname = '".escape($realname)."', location = '".escape($location)."', birthday = '".escape($birthday)."' where id = '".escape($_SESSION['userid'])."'");
+	$sql = ("update users set name = '".escape($name)."',email = '".escape($email)."' , website = '".escape($website)."', realname = '".escape($realname)."', location = '".escape($location)."', birthday = '".escape($birthday)."', aboutme = '".escape($aboutme)."' where id = '".escape($_SESSION['userid'])."'");
 	$query = mysql_query($sql);
 
 	$slug = createslug($name);
@@ -78,6 +79,7 @@ function validate() {
 		$_SESSION['moderator'] = $user['moderator'];
 		$_SESSION['location'] = $user['location'];
 		$_SESSION['realname'] = $user['realname'];
+		$_SESSION['aboutme'] = $user['aboutme'];
 		
 $sql = ("update users set lastactivity = '".escape(date("Y-m-d H:i:s"))."' where id = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
