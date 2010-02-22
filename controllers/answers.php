@@ -44,9 +44,6 @@ function post() {
 		exit;
 	}
 	
-	if( $result['notify']==1) {
-	sendEmail($result['userid']);
-	}
 	
 	$sql = ("insert into answers (questionid,description,created,updated,userid,accepted,votes) values ('".escape($questionid)."','".escape($description)."',NOW(),NOW(),'".escape($_SESSION['userid'])."','0','0')");
 	$query = mysql_query($sql);
@@ -54,7 +51,10 @@ function post() {
 	$sql = ("update questions set updated = NOW(), answers=answers+1 where id = '".escape($result['id'])."'");
 	$query = mysql_query($sql);
 	
-	
+	$url= "".$_SERVER['SERVER_NAME']."$basePath/questions/view/$questionid/{$result['slug']}";
+	if( $result['notify']==1) {
+	sendEmail($result['userid'],$result['title'],$url);
+	}
 	
 	header("Location: $basePath/questions/view/$questionid/{$result['slug']}");
 
