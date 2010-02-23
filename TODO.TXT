@@ -1,6 +1,5 @@
 TO DO:
 
-email notification
 date validation in user update
 admin pannel
 badge
