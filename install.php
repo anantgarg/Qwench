@@ -109,6 +109,7 @@ CREATE TABLE `questions` (
   `accepted` int(10) unsigned NOT NULL default '0',
   `answers` int(10) unsigned NOT NULL default '0',
   `kb` int(10) unsigned NOT NULL default '0',
+  `notify` int(10) unsigned NOT NULL default '0',  
   `slug` text NOT NULL,
   PRIMARY KEY  (`id`),
   FULLTEXT KEY `title` (`title`,`description`)
