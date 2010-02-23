@@ -209,11 +209,26 @@ function truncate ($text, $length = 200, $ending = "...") {
 
 function sendEmail($userid,$title,$url) {
 
+
 	$sql = ("select email from users where id = '".$userid."'");
 	$query= mysql_query($sql) or die(mysql_error());
 	$result = mysql_fetch_array($query) or die(mysql_error());
 	$url = "http://".$url;
-	mail($result['email'],"You received a response.","Someone has reply your question (".$title."). Visit the site to see it ".$url."");
+	if (HTML_EMAIL == True)	{
+		
+		$header = "From: ".MAILFROM."\n";
+		$header .= "MIME-Version: 1.0\n";
+		$header .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
+		$header .= "Content-Transfer-Encoding: 7bit\n\n";
+
+		$emailtext = "<html><body><p> Someone has reply your question <b>".$title."</b></p><p>Visit the site to see it <a href=\"". $url."\">".$url."</a></p></body></html>";
+		$subject = "You received a response";
+
+		mail($result['email'], $subject, $emailtext, $header) ;
+
+		}
+	if (HTML_EMAIL == False)
+	mail($result['email'],"You received a response.","Someone has reply your question (".$title."). Visit the site to see it \n".$url."");
 }
 
 db();

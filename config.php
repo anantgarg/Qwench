@@ -30,3 +30,6 @@ define('BASE_DIR','/qwench');
 // define('BASE_PATH',BASE_DIR.'/index.php');
 // If URL-Rewriting works, then leave the line below as is
 define('BASE_PATH',BASE_DIR);
+
+define('HTML_EMAIL',True);
+define('MAILFROM','example@email.com');
