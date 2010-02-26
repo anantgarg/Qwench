@@ -108,7 +108,12 @@ function post() {
 	$title = sanitize($_POST['title'],"string");
 	$description = sanitize($_POST['description'],"markdown");
 	$link = sanitize($_POST['link'],"url");
-	$notify = $_POST['notify'];
+	
+	if(isset($_POST['notify']) && $_POST['notify'] == '1')
+	$notify = sanitize($_POST['notify'],'int');
+	else
+	$notify = 0;
+	
 	$slug = createSlug($title);
 		
 	$kb = 0;
@@ -178,7 +183,11 @@ function update() {
 	$description = sanitize($_POST['description'],"markdown");
 	$link = sanitize($_POST['link'],"url");
 	$slug = createSlug($title);
+	
+	if(isset($_POST['notify']) && $_POST['notify'] == '1')
 	$notify = sanitize($_POST['notify'],'int');
+	else
+	$notify = 0;
 
 	$kb = 0;	
 
