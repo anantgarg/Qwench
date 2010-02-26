@@ -89,7 +89,11 @@ function del() {
 
 	$id = sanitize($_POST['id'],"int");
 
-	$sql = ("delete from comments where id = '".escape($id)."' and userid = '".escape($_SESSION['userid'])."'");
+	$sql = ("select userid from comments where id = '".escape($id)."'");
+	$query = mysql_query($sql);
+	$comment = mysql_fetch_array($query);
+
+	$sql = ("delete from comments where id = '".escape($id)."' and userid = '".escape($comment['userid'])."'");
 	$query = mysql_query($sql);
 
 	echo "1Comment successfully deleted";
