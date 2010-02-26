@@ -74,12 +74,12 @@ function update() {
 	$query = mysql_query($sql);
 	$qresult = mysql_fetch_array($query);
 
-	if ($qresult['userid'] != $_SESSION['userid']) {
+	if ($qresult['userid'] != $_SESSION['userid'] || $_SESSION['moderator']==1) {
 		$basePath = basePath();
 		header("Location: $basePath/questions/view/{$qresult['id']}/{$qresult['slug']}");
 	}
-	
-	$sql = ("update answers set description = '".escape($description)."', updated = NOW() where userid = '".escape($_SESSION['userid'])."' and id = '".escape($answerid)."'");
+	if($qresult['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1){
+	$sql = ("update answers set description = '".escape($description)."', updated = NOW() where userid = '".escape($qresult['userid'])."' and id = '".escape($answerid)."'");
 	$query = mysql_query($sql);
 
 	$sql = ("update questions set updated = NOW() where id = '".escape($result['questionid'])."'");
@@ -88,6 +88,7 @@ function update() {
 	$basePath = basePath();
 
 	header("Location: $basePath/questions/view/{$qresult['id']}/{$qresult['slug']}");
+	}
 }
 
 function vote() {
@@ -191,7 +192,7 @@ function accept() {
 		score('a_accepter',$answerid);
 	}
 
-	if ($result['userid'] == $_SESSION['userid']) {
+	if ($result['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1) {
 		$sql = ("update answers set accepted = '0' where questionid = '".escape($result['id'])."'");
 		$query = mysql_query($sql);
 		$sql = ("update answers set accepted = '1' where questionid = '".escape($result['id'])."' and id = '".escape($answerid)."'");

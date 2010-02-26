@@ -221,10 +221,11 @@ function update() {
 	} else if ($result['kb'] == 0 && $kb == 1) {
 		score('kb_posted',$questionid);	
 	}
-
-	$sql = ("update questions set title = '".escape($title)."', kb = '".escape($kb)."', notify = '".escape($notify)."', description = '".escape($description)."' , updated = NOW(), link = '".escape($link)."', slug = '".escape($slug)."' $cacheup where userid = '".escape($_SESSION['userid'])."' and id = '".escape($questionid)."'");
+	if($result['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1){
+	$sql = ("update questions set title = '".escape($title)."', kb = '".escape($kb)."', notify = '".escape($notify)."', description = '".escape($description)."' , updated = NOW(), link = '".escape($link)."', slug = '".escape($slug)."' $cacheup where userid = '".escape($result['userid'])."' and id = '".escape($questionid)."'");
 	$query = mysql_query($sql);
 	echo mysql_error();
+	}
 	 
 
 	$sql = ("delete from tags_questions where questionid = '".escape($questionid)."'");
