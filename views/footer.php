@@ -32,7 +32,8 @@
 <div style="clear:both">&nbsp;</div>
 <div class="footer">
 <!-- Copyright Notice Do Not Remove -->
-<a href="http://www.inscripts.com/qwench" target="_blank">Powered by Qwench</a><br/>Copyright 2009-2010 <a href="http://www.inscripts.com" target="_blank">Inscripts</a>
+Powered by Qwench</a><br/>Copyright 2009-2010 Inscripts<br>
+Diablo512
 <!-- Copyright Notice Do Not Remove -->
 </div>
 </body>
