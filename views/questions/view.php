@@ -120,6 +120,14 @@ x</a></div>
 
 <?php foreach ($answers as $answer):?>
 
+<?php 
+if ($mod==1){ echo"
+<div id=\"delquestion\" onmouseover=\"mouseover()\" class=\"questionsview_del\"><a href=\"".basePath()."/answers/del/". $answer['id']."\">
+x</a>
+</div>";
+}
+?>
+
 <div class="questionsview_userbox">
 <?php echo getUser($answer['userid']);?>
 </div>

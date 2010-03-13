@@ -208,19 +208,30 @@ function accept() {
 
 	header("Location: $basePath/questions/view/{$result['id']}/{$result['slug']}");
 }
-/*
+
+
+
 function del() {
+	authenticate(1);
+	
+	$basePath = basePath();
+	$basePathNS = basePathNS();
+	
+	global $path;
+	global $template;
 
-	$id = sanitize($_POST['id'],"int");
+	$answerid = sanitize($path[2],"int");
+	
+	if ($_SESSION['moderator']==1){
 
-	$sql = ("select userid from answers where id = '".escape($id)."'");
+
+	$sql = ("delete from answers where id = '".escape($answerid)."' ");
 	$query = mysql_query($sql);
-	$answer = mysql_fetch_array($query);
-
-	$sql = ("delete from answers where id = '".escape($id)."' and userid = '".escape($answer['userid'])."'");
-	$query = mysql_query($sql);
-
-	echo "1Answer successfully deleted";
-	exit;
+	
+	
+	header("Location: $basePathNS/index.php");
 	}
-	*/
+	else
+	header("Location: $basePathNS/index.php");
+		
+}
