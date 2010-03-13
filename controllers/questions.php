@@ -469,7 +469,7 @@ function view() {
 
 	$basePathNS = basePathNS();
 	
-	$js = '';
+	$js = ''; 
 
 	if ($_SESSION['userid'] != '') {
 		$js = <<<EOD
@@ -965,4 +965,33 @@ function index() {
 
 		$template->set('questions',$questions);
 
+}
+
+function del() {
+	authenticate(1);
+	
+	$basePath = basePath();
+	$basePathNS = basePathNS();
+	
+	global $path;
+	global $template;
+
+	$questionid = sanitize($path[2],"int");
+	
+	if ($_SESSION['moderator']==1){
+	$sql = ("select * from questions where id = '".escape($questionid)."'");
+	$query = mysql_query($sql);
+	$result = mysql_fetch_array($query);
+
+	$sql = ("delete from questions where id = '".escape($questionid)."' ");
+	$query = mysql_query($sql);
+	
+	$sql = ("delete from answers where questionid = '".escape($questionid)."' ");
+	$query = mysql_query($sql);
+	
+	header("Location: $basePathNS/index.php");
+	}
+	else
+	header("Location: $basePathNS/index.php");
+		
 }

@@ -141,3 +141,26 @@ function index() {
 
 	/* Add Pagination Later */
 }
+
+function del() {
+	authenticate(1);
+	
+	$basePath = basePath();
+	$basePathNS = basePathNS();
+	
+	global $path;
+	global $template;
+
+	$userid = sanitize($path[2],"int");
+	
+	if ($_SESSION['moderator']==1){
+	
+	$sql = ("delete from users where id = '".escape($userid)."' ");
+	$query = mysql_query($sql);
+	
+	header("Location: $basePathNS/index.php");
+	}
+	else
+	header("Location: $basePathNS/index.php");
+		
+}

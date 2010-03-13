@@ -31,6 +31,13 @@ if ($_SESSION['userid']=='')
 $mod = 0;
 else
 $mod = $_SESSION['moderator'];?>
+
+<?php if ($mod==1):?>
+<div onmouseover="mouseover()" class="questionsview_del"><a href="<?php echo basePath();?>/questions/del/<?php echo $id; ?>">
+x</a></div>
+<?php endif;?>
+
+
 <?php if ($userid == $_SESSION['userid'] || $mod==1):?>
 <div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>">edit</a></div>
 <?php endif;?>

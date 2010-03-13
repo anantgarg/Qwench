@@ -13,9 +13,22 @@
 <div style="clear:both"></div>
 </div> 
 <?php endif;?>
+<?php
+if ($_SESSION['userid']=='')
+$mod = 0;
+else
+$mod = $_SESSION['moderator'];?>
 
 <div style="clear:both;height:30px;"></div>
 <?php foreach ($questions as $question):?>
+
+<?php 
+if ($mod==1){ echo"
+<div id=\"delquestion\" onmouseover=\"mouseover()\" class=\"questionsview_del\"><a href=\"".basePath()."/questions/del/". $question['id']."\">
+x</a>
+</div>";
+}
+?>
 
 <div class="questionsview_userbox">
 <?php echo getUser($question['userid']);?>

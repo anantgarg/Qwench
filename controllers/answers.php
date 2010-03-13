@@ -208,3 +208,19 @@ function accept() {
 
 	header("Location: $basePath/questions/view/{$result['id']}/{$result['slug']}");
 }
+/*
+function del() {
+
+	$id = sanitize($_POST['id'],"int");
+
+	$sql = ("select userid from answers where id = '".escape($id)."'");
+	$query = mysql_query($sql);
+	$answer = mysql_fetch_array($query);
+
+	$sql = ("delete from answers where id = '".escape($id)."' and userid = '".escape($answer['userid'])."'");
+	$query = mysql_query($sql);
+
+	echo "1Answer successfully deleted";
+	exit;
+	}
+	*/
