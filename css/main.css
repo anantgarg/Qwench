@@ -419,6 +419,25 @@ body {
 	border-bottom: 0px;
 }
 
+.questionsview_del {
+	padding: 3px;
+	padding-right: 10px;
+	padding-left: 10px;
+	background-color: #eee;
+	font-size: 10px;
+	font-weight: bold;
+	text-decoration: none;
+	border: 1px solid #ccc;
+	-moz-border-radius-bottomright:6px;
+	-moz-border-radius-topleft:6px;
+	color: #666;
+	float: right;
+	margin-right: 10px;
+}
+.questionsview_del:hover { 
+	background-color: #F33636; 
+	}
+
 pre {
 	margin-top: 10px;
 	margin-bottom: 10px;
