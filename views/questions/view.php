@@ -53,7 +53,7 @@ x</a></div>
 <div class="questionsview_questiondescription">
 
 
-<div class="markdown"><?php echo $description;?></div>
+<div class="markdown"><?php echo html_entity_decode($description);?></div>
 
 <?php if (!empty($link)):?>
 <p><br/><?php echo $link;?> <?php if ($cache):?><em><a href="<?php echo basePath();?>/questions/cache/<?php echo $id;?>" target="_blank">(view cache)</a></em><?php endif;?></p>

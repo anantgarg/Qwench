@@ -907,8 +907,8 @@ function index() {
 		$type = "&type=".sanitize($_GET['type'],"string");
 		
 		if (sanitize($_GET['type'],"string") == "unanswered") {
-		//	$conditionspost .= " questions.id NOT IN (select questions.id from questions,answers where questions.id = answers.questionid and answers.accepted = 1) and ";
-			$conditionspost .= " questions.accepted = 0 and questions.kb = 0 and ";
+			$conditionspost .= " questions.id NOT IN (select questions.id from questions,answers where questions.id = answers.questionid and answers.accepted = 1) and ";
+		//	$conditionspost .= " questions.accepted = 0 and questions.kb = 0 and ";
 			$extratitle = " not yet answered";
 
 		} else {
