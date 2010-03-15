@@ -1,29 +1,19 @@
-<h3>Moderators</h3>
+
+<h1>Administration Panel</h1>
+
+<h2>• Moderators</h2>
 <?php foreach( $moderators as $moderator ):?>
- <li>
-<b><?php echo $moderator['name'];?></li>
+
+<?php echo $moderator['name'];?>
+<br>
+ <?php endforeach;?><br> 
+ 
+<h2>• Highest voted questions</h2></p>
+ <?php foreach( $bestquestions as $bestquestion ):?>
+Vote: <?php echo $bestquestion['votes'];?> Title: <?php echo $bestquestion['title'];?> Author:<div class="questionsview_userbox"><?php echo getUser($bestquestion['userid']);?></div>   <br>
  <?php endforeach;?>
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- <?php  /*
- <h1><?php echo $count;?> Tags</h1>
-
-<div style="clear:both"></div>
-
-<div class="tags_list">
-<ul class="holder noborder">
-<?php foreach ($tags as $tag):?>
-<li class="bit-box nopadding"><a href="<?php echo basePath();?>/questions?tag=<?php echo $tag['tag'];?>"><?php echo $tag['tag'];?></a> x <?php echo $tag['count'];?></li>
-<?php endforeach;?>
-</ul>
-</div>
-
-*/?>
+ <h2>• Lowest voted questions</h2></p>
+ <?php foreach( $worstquestions as $worstquestion ):?>
+Vote: <?php echo $worstquestion['votes'];?> Title: <?php echo $worstquestion['title'];?>  <a href="<?php echo generateLink("users","view")."/".$worstquestion['userid'];?>"><b>Author</b></a>  <br>
+ <?php endforeach;?>

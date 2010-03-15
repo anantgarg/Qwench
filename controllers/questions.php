@@ -573,7 +573,7 @@ EOD;
 		\$this = $(this);
 
 		$.post(basePath+"/comments/vote", { id: id },
-			function(data) {
+		function(data) {
 
 				var result = data.substr(0,1);
 				var message = data.substr(1);
@@ -622,10 +622,39 @@ EOD;
 				}
 						
 			});
+					
 		}
 
 		
 	});
+
+			$(".answerdel").click(function() {
+
+		var answer = confirm("Delete this answer?")
+		if (answer){
+			var id = $(this).attr('id');
+			\$this = $(this);
+			$.post(basePath+"/answers/del", { id: id },
+				function(data) {
+
+				var result = data.substr(0,1);
+				var message = data.substr(1);
+
+				if (result == "1") {
+					document.location.reload();
+				}
+
+				if (message != '') {
+					$.fancyalert(message);
+				}
+						
+			});
+					
+		}
+
+		
+	});
+
 
 	var comments = $(".comments");
 	$.each(comments, function() { 
@@ -696,6 +725,8 @@ function viewallcomments(id){
 	$('#comments_'+id+' .comment').fadeIn(1000);
 	$('#comment_'+id+' .viewallcomments').css('display','none');
 }
+
+
 
 </script>
 

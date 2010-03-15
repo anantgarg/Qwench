@@ -14,10 +14,28 @@ function index() {
 	$tags = array();
 	
 	while ($result = mysql_fetch_array($query)) {
-		$tags[] = array ("tag" => $result['tag'], "count" => $result['tagcount']);
+		$tags[] = array ( "tag" => $result['tag'], "count" => $result['tagcount']);
 	}
 
 	$template->set('tags',$tags);
 
 	/* Add Pagination Later */
+}
+
+function del() {
+	authenticate(1);
+	
+$tag = $_GET['tag'];
+	
+if (isset($_SESSION['moderator'])==1){
+
+	$sql = ("delete from tags where tag = '".escape($tag)."' ");
+	$query = mysql_query($sql);
+
+	
+	header("Location: $basePath/tags");
+	}
+	else
+	header("Location: $basePath/tags");
+		
 }

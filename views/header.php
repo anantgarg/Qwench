@@ -28,11 +28,7 @@
 <div style="float:right;border-left: 1px solid #13a1c9;border-right: 1px solid #45c9e9;"><ol><li><a href="<?php echo basePath();?>">Home</a></li><li><a href="<?php echo basePath();?>/questions">Questions</a></li><li><a href="<?php echo basePath();?>/tags">Tags</a></li><li><a href="<?php echo basePath();?>/users">Users</a></li><li><a href="<?php echo basePath();?>/questions?type=unanswered">Unanswered</a></li><li><a href="<?php echo basePath();?>/questions/ask">Ask or Contribute</a></li></ol></div>
 
 </div>
-<div style="clear:both"></div><!-- 
-</div>
-<div style="position: absolute; left: 8%;">
- <a href="<?php echo basePathNS();?>"><img src="<?php echo basePathNS();?>/img/logoheap.png" alt="Heap Overflow"></a> 
--->
+<div style="clear:both"></div>
 </div> 
 <div id="container">
 	<div id="leftpanel">

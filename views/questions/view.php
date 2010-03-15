@@ -37,7 +37,6 @@ $mod = $_SESSION['moderator'];?>
 x</a></div>
 <?php endif;?>
 
-
 <?php if ($userid == $_SESSION['userid'] || $mod==1):?>
 <div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>">edit</a></div>
 <?php endif;?>
@@ -119,12 +118,9 @@ x</a></div>
 
 
 <?php foreach ($answers as $answer):?>
-
 <?php 
-if ($mod==1){ echo"
-<div id=\"delquestion\" onmouseover=\"mouseover()\" class=\"questionsview_del\"><a href=\"".basePath()."/answers/del/". $answer['id']."\">
-x</a>
-</div>";
+if ($mod==1){ 
+echo "<div  class=\"answerdel\" id=\"answerdel_".$answer['id']."\">x</div>";
 }
 ?>
 

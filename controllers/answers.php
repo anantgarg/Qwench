@@ -210,7 +210,7 @@ function accept() {
 }
 
 
-
+/*
 function del() {
 	authenticate(1);
 	
@@ -234,4 +234,18 @@ function del() {
 	else
 	header("Location: $basePathNS/index.php");
 		
+}
+*/
+
+function del() {
+
+	$id = sanitize($_POST['id'],"int");
+
+
+	$sql = ("delete from answers where id = '".escape($id)."'");
+	$query = mysql_query($sql);
+
+	echo "1Answer successfully deleted";
+	exit;
+
 }
