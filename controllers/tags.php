@@ -25,7 +25,13 @@ function index() {
 function del() {
 	authenticate(1);
 	
-$tag = $_GET['tag'];
+	$basePath = basePath();
+	$basePathNS = basePathNS();
+	
+	global $path;
+	global $template;
+	
+	$tag = $_GET['tag'];
 	
 if (isset($_SESSION['moderator'])==1){
 
