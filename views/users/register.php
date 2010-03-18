@@ -58,8 +58,8 @@ function cform() {
 <h1>Register</h1>
 
 <h3>Name*</h3>
-<input type="textbox" class="textbox" name="name" id="name"/><br/>
-
+<input type="textbox" class="textbox" name="name" id="name" onKeyUp="getContent();return false;"/><br/>
+<div id="contentcontainer" style="display:none;"></div>
 <h3>E-mail*</h3>
 <input type="textbox" class="textbox" name="email" id="email"/><br/>
 
@@ -71,4 +71,4 @@ function cform() {
 
 <br/><br/>
 <input type="submit" value="Register" class="button">
-</form>
+</form><div style="padding-top:10px">*Required fields</div> 
