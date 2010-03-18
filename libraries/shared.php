@@ -231,5 +231,15 @@ function sendEmail($userid,$title,$url) {
 	mail($result['email'],"You received a response.","Someone has reply your question (".$title."). Visit the site to see it \n".$url."");
 }
 
+function writelog($string) {
+
+$date = gmdate( "d/M/Y  H:i:s");
+$string = $date ."   ". $string ." [".$_SERVER['REMOTE_ADDR']."]"."\n";
+
+$log_file=fopen("log.txt","a+");
+fwrite($log_file,$string);
+fclose($log_file);
+}
+
 db();
 authenticate();
