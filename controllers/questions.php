@@ -459,7 +459,7 @@ function view() {
 			if ($pos > 0) {
 				$result['username'] = substr($result['username'],0,$pos);
 			}
-			$comments[] = array("id" => $result_nest['id'], "comment" => $result_nest['comment'], "userid" => $result_nest['userid'], "username" => $result['username'],  "voted" => $result_nest['voted'],  "votes" => $result_nest['votes']);
+			$comments[] = array("id" => $result_nest['id'], "comment" => $result_nest['comment'], "userid" => $result_nest['userid'], "username" => $result_nest['username'],  "voted" => $result_nest['voted'],  "votes" => $result_nest['votes']);
 		}
 
 		$answers[] = array ("description" => Markdown($result['description']), "created" => $result['created'], "updated" => $result['updated'], "userid" => $result['userid'], "username" => $result['username'], "pvote" => $pvote, "nvote" => $nvote, "votes" => $votes, "id" => $result['id'], "accepted"=> $result['accepted'], "comments" => $comments );
