@@ -97,20 +97,109 @@ $sql = ("update users set lastactivity = '".escape(date("Y-m-d H:i:s"))."' where
 }
  
 function register() {
+	global $template;
+	
+	
+	
+	
+	$basePathNS = basePathNS();
 
+
+	$js = <<<EOD
+
+
+
+<script>
+
+	var basePath = "$basePathNS/index.php";
+
+	
+	function getContent()
+{
+var name = document.getElementById("name").value;
+
+$.post(basePath+"/users/check", { name: name}, function(data){ 
+$('#contentcontainer').html(data); });
+
+document.getElementById('contentcontainer').style.display='block';
+};
+</script>
+EOD;
+
+	$template->set('js',$js);
 }
 
 function create() {
+
+	$basePathNS = basePathNS();
+		
+  function validEmail($email) {
+		$result = preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i",$email);
+		if($result == false){
+			return false;
+		}else{
+			return true;
+		}
+}	
+			
 	$name = sanitize($_POST['name'],"string");
-	$email = sanitize($_POST['email'],"email");
-	$password = sanitize($_POST['password'],"string");
-	$password = sha1(SALT.$password.$email);
-	
-	$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
+	$sql = ("select count(*) as 'numrow' from users where name='".$name."'");
 	$query = mysql_query($sql);
+	$numrow = mysql_fetch_array($query); 
+       
+        if($numrow['numrow']!=0){
+		//	writelog("l'username è gia presente");
+			$usck=false;
+			}
+		else
+		{
+		//	writelog("l'username non è presente");
+			$usck=true;
+			}
+			
+	$email = sanitize($_POST['email'],"email");
 	
-	validate();
+
+if(validEmail($email)){
+
+	$sql2 = ("select count(*) as 'numrow' from users where email='".$email."'");
+	$query2 = mysql_query($sql2);
+	$numrow2 = mysql_fetch_array($query2); 
+      
+        if($numrow2['numrow']!=0){
+		//	writelog("indirizzo email è gia presente");
+			$emck=false;
+			header("Location: $basePathNS/index.php/users/register");
+			}
+			
+		else {
+		//	writelog("indirizzo email non presente");
+			$emck=true;
+		
+			$password = sanitize($_POST['password'],"string");
+			$password2 = sanitize($_POST['password2'],"string");
 	
+				if (($password == $password2) && ($usck==true))
+					{
+	
+						$password = sha1(SALT.$password.$email);
+	
+						$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
+						$query = mysql_query($sql);
+	
+						validate();
+						header("Location: $basePathNS/index.php");
+					}
+			
+			}
+	}
+	else
+	{
+	$emck=false;
+	//writelog("indirizzo email non valido");
+	header("Location: $basePathNS/index.php/users/register");
+    }    
+    
 }
 
 function logout() {
@@ -163,4 +252,27 @@ function del() {
 	else
 	header("Location: $basePathNS/index.php");
 		
+}
+
+function check() {
+ if (isset($_POST['name'])){
+$user = sanitize($_POST['name'],"string");
+
+if(strlen($user) <= 0)
+{
+  die;
+}
+ 
+$sql = ("select count(*) as 'numrow' from users where name='$user'");
+$query = mysql_query($sql);
+
+$row = mysql_result($query,0);
+
+if($row!=0)
+			  echo  "Sorry but username $user is already in use";
+		else
+  echo "Success,username $user is still available";
+
+}
+		exit;
 }
