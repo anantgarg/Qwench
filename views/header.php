@@ -4,7 +4,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 <head>
-<title>Qwench</title>
+<title><?php echo SITETITLE; ?></title>
 <link type="text/css" rel="stylesheet" href="<?php echo basePathNS();?>/css/main.css">
 <link type="text/css" rel="stylesheet" href="<?php echo basePathNS();?>/css/tagscomplete.css">
 
