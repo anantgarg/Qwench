@@ -68,7 +68,23 @@ function cform() {
 
 <h3>Repeat Password*</h3>
 <input type="password" class="textbox" name="password2" id="password2"/>
-
+<br/><br/>
+<?php
+echo recaptcha_get_html(PUBLICKEY);
+?>
 <br/><br/>
 <input type="submit" value="Register" class="button">
-</form><div style="padding-top:10px">*Required fields</div> 
+<div style="padding-top:10px">*Required fields</div> </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
