@@ -130,76 +130,110 @@ EOD;
 }
 
 function create() {
-
+	
 	$basePathNS = basePathNS();
-		
+	$name = sanitize($_POST['name'],"string");	
+	$email = sanitize($_POST['email'],"email");
+	$password= sanitize($_POST['password'],"string");
+	$password2 = sanitize($_POST['password2'],"string");
+	
   function validEmail($email) {
 		$result = preg_match("/^[_\.0-9a-zA-Z-]+@([0-9a-zA-Z][0-9a-zA-Z-]+\.)+[a-zA-Z]{2,6}$/i",$email);
 		if($result == false){
+		writelog("convalida email: FALLITA");
 			return false;
 		}else{
+		writelog("convalida email: OK");
 			return true;
 		}
 }	
-			
-	$name = sanitize($_POST['name'],"string");
+		
+function checkUser($name) {
 	$sql = ("select count(*) as 'numrow' from users where name='".$name."'");
 	$query = mysql_query($sql);
 	$numrow = mysql_fetch_array($query); 
        
         if($numrow['numrow']!=0){
-		//	writelog("l'username è gia presente");
-			$usck=false;
+			writelog("l'username è gia presente");
+			return false;
 			}
 		else
 		{
-		//	writelog("l'username non è presente");
-			$usck=true;
+			writelog("l'username non è presente");
+			return true;
 			}
-			
-	$email = sanitize($_POST['email'],"email");
+		}
+		
+
 	
+//***************   reCAPTCHA    **************	
 
-if(validEmail($email)){
+	$resp = recaptcha_check_answer (PRIVATEKEY,
+                                $_SERVER["REMOTE_ADDR"],
+                                $_POST["recaptcha_challenge_field"],
+                                $_POST["recaptcha_response_field"]); 
+                                
+writelog("fuori dal ciclo captcha	".$_SERVER["REMOTE_ADDR"]."recaptcha_challenge_field:".$_POST["recaptcha_challenge_field"]."recaptcha_response_field:".$_POST["recaptcha_response_field"]);
 
+if ($resp->is_valid) {
+writelog("controllo captcha: OK");
+$captcha = true;
+}
+else{
+writelog("controllo captcha: FALLITO");
+$captcha = false;
+}
+
+
+function checkEmail($email){
+
+if (validEmail($email)){
 	$sql2 = ("select count(*) as 'numrow' from users where email='".$email."'");
 	$query2 = mysql_query($sql2);
 	$numrow2 = mysql_fetch_array($query2); 
       
         if($numrow2['numrow']!=0){
-		//	writelog("indirizzo email è gia presente");
-			$emck=false;
-			header("Location: $basePathNS/index.php/users/register");
+			writelog("indirizzo email è gia presente");
+			return false;
 			}
 			
 		else {
-		//	writelog("indirizzo email non presente");
-			$emck=true;
+			writelog("indirizzo email non presente");
+			return true;
+		}
+	}
+	}
 		
-			$password = sanitize($_POST['password'],"string");
-			$password2 = sanitize($_POST['password2'],"string");
+function checkpswd($password,$password2){		
 	
-				if (($password == $password2) && ($usck==true))
-					{
+				if (($password == $password2)){
+				writelog("controllo password: OK");
+					return true;
+					}
+			else{
+			writelog("controllo password: FALLITO");
+			return false;
+			}
+		}
+		
 	
-						$password = sha1(SALT.$password.$email);
+// insert user into database	
+	if(checkUser($name) && checkEmail($email) && checkpswd($password,$password2) && $captcha==true){
+	
+		$password = sha1(SALT.$password.$email);
 	
 						$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
 						$query = mysql_query($sql);
 	
 						validate();
 						header("Location: $basePathNS/index.php");
-					}
-			
-			}
 	}
 	else
 	{
-	$emck=false;
-	//writelog("indirizzo email non valido");
+	writelog("errore");
 	header("Location: $basePathNS/index.php/users/register");
-    }    
-    
+    }   
+     
 }
 
 function logout() {
@@ -247,7 +281,7 @@ function del() {
 	$sql = ("delete from users where id = '".escape($userid)."' ");
 	$query = mysql_query($sql);
 	
-	header("Location: $basePathNS/index.php");
+	header("Location: $basePath/users");
 	}
 	else
 	header("Location: $basePathNS/index.php");
@@ -269,9 +303,9 @@ $query = mysql_query($sql);
 $row = mysql_result($query,0);
 
 if($row!=0)
-			  echo  "Sorry but username $user is already in use";
+			  echo  "<span style=\"color:red\";>Sorry but username $user is already in use</span>";
 		else
-  echo "Success,username $user is still available";
+  echo "<span style=\"color:green\";>Success,username $user is still available</span>";
 
 }
 		exit;
