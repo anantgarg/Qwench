@@ -49,7 +49,14 @@ define(\'BASE_DIR\',\''.$base_dir.'\');
 define(\'HTML_EMAIL\','.$_POST['html'].');
 define(\'MAILFROM\',\''.$_POST['mailfrom'].'\');
 
-define(\'SITETITLE\',\''.$_POST['title'].'\');';
+define(\'SITETITLE\',\''.$_POST['title'].'\');
+
+
+//To use reCAPTCHA you must get an API key from 
+//http://recaptcha.net/api/getkey
+define(\'PRIVATEKEY\',\''.$_POST['privatekey'].'\');
+define(\'PUBLICKEY\',\''.$_POST['publickey'].'\');
+';
 
 
 
@@ -130,8 +137,10 @@ echo '<a href=install.php>next step: database import</a>';
 	<option value="True">True 
 	<option value="False">False
 	</select><br/>
-	<input type="textbox" class="textbox" style="width:250px" name="mailfrom" value="me@example.com" /><br/><br/>
-
+	<h3>reCaptcha Configuration</h3>
+	<a href="http://recaptcha.net/">http://recaptcha.net/</a><br/>
+	<input type="textbox" class="textbox" style="width:250px" name="privatekey" value="privatekey" /><br/>
+	<input type="textbox" class="textbox" style="width:250px" name="publickey" value="publickey" /><br/><br/>
 
 <br>
 
@@ -140,4 +149,5 @@ echo '<a href=install.php>next step: database import</a>';
 
    </body>
 </html>
+
 
