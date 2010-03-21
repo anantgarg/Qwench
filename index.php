@@ -39,6 +39,7 @@ include_once ROOT.DS.'libraries'.DS.'timeago.php';
 include_once ROOT.DS.'libraries'.DS.'score.php';
 include_once ROOT.DS.'libraries'.DS.'pagination.class.php';
 include_once ROOT.DS.'controllers'.DS.'helpers.php';
+require_once ROOT.DS.'libraries'.DS.'recaptchalib.php';
 /* Debug Mode */
 
 error_reporting(E_ALL);

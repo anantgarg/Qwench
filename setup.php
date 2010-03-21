@@ -137,6 +137,7 @@ echo '<a href=install.php>next step: database import</a>';
 	<option value="True">True 
 	<option value="False">False
 	</select><br/>
+	<input type="textbox" class="textbox" style="width:250px" name="mailfrom" value="me@example.com" /><br/><br/>
 	<h3>reCaptcha Configuration</h3>
 	<a href="http://recaptcha.net/">http://recaptcha.net/</a><br/>
 	<input type="textbox" class="textbox" style="width:250px" name="privatekey" value="privatekey" /><br/>
