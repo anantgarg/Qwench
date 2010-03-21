@@ -64,7 +64,7 @@ function validate() {
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
 	
-	$sql = ("select * from users where email = '".escape($email)."' and password = '".escape($password)."'");
+	$sql = ("select * from users where email = '".escape($email)."' and active='1' and password = '".escape($password)."'");
 	$query = mysql_query($sql);
 	$user = mysql_fetch_array($query);
 
@@ -132,6 +132,7 @@ EOD;
 function create() {
 	
 	$basePathNS = basePathNS();
+	$basePath = basePath();
 	$name = sanitize($_POST['name'],"string");	
 	$email = sanitize($_POST['email'],"email");
 	$password= sanitize($_POST['password'],"string");
@@ -224,9 +225,19 @@ function checkpswd($password,$password2){
 	
 						$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
 						$query = mysql_query($sql);
+						
+						$userid = mysql_insert_id();
+						
+	$temp = gettimeofday(); 
+	$msec = (int) $temp["usec"]; 
+	$activeid = md5(time() . $msec); 
+						
+						$sql = ("insert into confirm (confirm_validator, confirm_userid) values ('$activeid', '$userid')");
+						$query = mysql_query($sql);			
+						
+						sendActivationEmail($userid,$activeid);								
 	
-						validate();
-						header("Location: $basePathNS/index.php");
+						header("Location: $basePath/users/active?action=1");
 	}
 	else
 	{
@@ -304,9 +315,40 @@ $row = mysql_result($query,0);
 
 if($row!=0)
 			  echo  "<span style=\"color:red\";>Sorry but username $user is already in use</span>";
-		else
+		else{
   echo "<span style=\"color:green\";>Success,username $user is still available</span>";
 
 }
 		exit;
+}
+}
+
+function active() {
+
+	global $path;
+	global $template;
+
+ if (isset($_GET['id'])){
+$id = sanitize($_GET['id'],"string");
+
+
+	$sql = ("select * from confirm where confirm_validator = '".escape($id)."' ");
+	$query = mysql_query($sql);
+	$array = mysql_fetch_array($query);
+	
+	
+	if (!is_array($array)) 
+{ 
+  $template->set('active',False);
+} 
+else
+{
+$user_id = $array["confirm_userid"]; 
+$sql = ("update users set active = '1' where id = '$user_id'");
+$query = mysql_query($sql);
+$template->set('active',True);
+}
+
+}
+
 }

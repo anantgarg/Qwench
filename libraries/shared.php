@@ -207,7 +207,7 @@ function truncate ($text, $length = 200, $ending = "...") {
 
 
 
-function sendEmail($userid,$title,$url) {
+function sendNotificationEmail($userid,$title,$url) {
 
 
 	$sql = ("select email from users where id = '".$userid."'");
@@ -229,6 +229,31 @@ function sendEmail($userid,$title,$url) {
 		}
 	if (HTML_EMAIL == False)
 	mail($result['email'],"You received a response.","Someone has reply your question (".$title."). Visit the site to see it \n".$url."");
+}
+
+function sendActivationEmail($userid,$activeid) {
+	
+		$basePath = basePath();
+		$url= "http://".$_SERVER['SERVER_NAME']."$basePath/users/active?id=".$activeid;
+
+	$sql = ("select * from users where id = '".$userid."'");
+	$query= mysql_query($sql) or die(mysql_error());
+	$result = mysql_fetch_array($query) or die(mysql_error());
+	if (HTML_EMAIL == True)	{
+		
+		$header = "From: ".MAILFROM."\n";
+		$header .= "MIME-Version: 1.0\n";
+		$header .= "Content-Type: text/html; charset=\"iso-8859-1\"\n";
+		$header .= "Content-Transfer-Encoding: 7bit\n\n";
+
+		$emailtext = "<html><body><p>Welcome to ".SITETITLE." ".$result['name']."! </p><p> Please click this link below to activate your account:</p> <a href=\"". $url."\">".$url."</a></body></html>";
+		$subject = "Account Activation";
+
+		mail($result['email'], $subject, $emailtext, $header) ;
+
+		}
+	if (HTML_EMAIL == False)
+	mail($result['email'],"Account Activation.","Welcome to ".SITETITLE." ".$result['name']."! \nPlease copy and paste this link in your browser to activate your account: \n".$url."");
 }
 
 function writelog($string) {

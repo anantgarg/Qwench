@@ -53,7 +53,7 @@ function post() {
 	
 	$url= "".$_SERVER['SERVER_NAME']."$basePath/questions/view/$questionid/{$result['slug']}";
 	if( $result['notify']==1) {
-	sendEmail($result['userid'],$result['title'],$url);
+	sendNotificationEmail($result['userid'],$result['title'],$url);
 	}
 	
 	header("Location: $basePath/questions/view/$questionid/{$result['slug']}");

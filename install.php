@@ -166,9 +166,20 @@ CREATE TABLE `users` (
   `aboutme` text NOT NULL,  
   `points` int(11) NOT NULL default '0',
   `moderator` int(10) unsigned NOT NULL,
+  `active` int(10) unsigned NOT NULL,
   `created` datetime NOT NULL,
   `lastactivity` datetime NOT NULL,
   PRIMARY KEY  (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+SET character_set_client = @saved_cs_client;
+
+
+DROP TABLE IF EXISTS `confirm`;
+CREATE TABLE IF NOT EXISTS `confirm` (
+  `confirm_id` int(11) NOT NULL AUTO_INCREMENT,
+  `confirm_validator` varchar(32) NOT NULL,
+  `confirm_userid` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`confirm_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
