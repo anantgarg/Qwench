@@ -240,9 +240,15 @@ function del() {
 function del() {
 
 	$id = sanitize($_POST['id'],"int");
-
-
+	
+	$sql = ("select questionid from answers where id ='".escape($id)."'");
+	$query = mysql_query($sql);
+	$questionid = mysql_result($query,0);
+	
 	$sql = ("delete from answers where id = '".escape($id)."'");
+	$query = mysql_query($sql);
+	
+	$sql = ("update questions set  answers=answers-1 where id = '".$questionid."'");
 	$query = mysql_query($sql);
 
 	echo "1Answer successfully deleted";

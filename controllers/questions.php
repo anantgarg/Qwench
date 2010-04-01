@@ -1019,6 +1019,9 @@ function del() {
 	
 	$sql = ("delete from answers where questionid = '".escape($questionid)."' ");
 	$query = mysql_query($sql);
+
+	$sql = ("delete from tags_questions where questionid = '".escape($questionid)."' ");
+	$query = mysql_query($sql);
 	
 	header("Location: $basePathNS/index.php");
 	}

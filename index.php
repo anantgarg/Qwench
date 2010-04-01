@@ -47,6 +47,11 @@ ini_set('display_errors','On');
 
 /* Basic Bootstrapping */
 
+if(!file_exists(ROOT.DS.'controllers'.DS.$controller.'.php')) {
+    $controller = "error"; // error controller name
+    $action = "index"; // default error controller action
+
+}
 include ROOT.DS.'controllers'.DS.$controller.'.php';
 if (function_exists($action)) {
 	call_user_func($action);

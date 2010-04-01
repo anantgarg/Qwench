@@ -20,6 +20,7 @@ else
 $mod = $_SESSION['moderator'];?>
 
 <div style="clear:both;height:30px;"></div>
+
 <?php foreach ($questions as $question):?>
 
 <?php 
