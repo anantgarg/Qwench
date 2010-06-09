@@ -12,17 +12,36 @@ define('DS',DIRECTORY_SEPARATOR);
 
 /* Get Basic Details */
 
-if (isset($_SERVER['PATH_INFO']))
-$path = explode("/", substr($_SERVER['PATH_INFO'],1));
+if (isset($_SERVER['PATH_INFO'])) {
+	$path = explode("/", substr($_SERVER['PATH_INFO'],1));
+}
 
 $controller = 'questions';
+
 $action = 'index';
-if (empty($_GET['type'])) { $_GET['type'] = "active"; }
+
+if (empty($_GET['type'])) {
+	$_GET['type'] = "active";
+}
+
 $norender = false;
+
 $noheader = false;
 
-if (!empty($path[0])) { $controller = $path[0]; if ($_GET['type'] == "active") { $_GET['type'] = ""; } }
-if (!empty($path[1])) { $action = $path[1]; if ($_GET['type'] == "active") { $_GET['type'] = ""; } }
+if (!empty($path[0])) {
+	$controller = $path[0];
+	if ($_GET['type'] == "active") {
+		$_GET['type'] = "";
+	}
+}
+
+if (!empty($path[1])) {
+	$action = $path[1];
+	if ($_GET['type'] == "active") {
+		$_GET['type'] = "";
+	}
+}
+
 
 /* Include Libraries */
 
@@ -48,16 +67,18 @@ ini_set('display_errors','On');
 /* Basic Bootstrapping */
 
 if(!file_exists(ROOT.DS.'controllers'.DS.$controller.'.php')) {
-    $controller = "error"; // error controller name
-    $action = "index"; // default error controller action
-
+	$controller = "error"; // error controller name
+	$action = "index"; // default error controller action
 }
+
 include ROOT.DS.'controllers'.DS.$controller.'.php';
+
 if (function_exists($action)) {
 	call_user_func($action);
 } else {
 	call_user_func('index');
 }
+
 if ($norender == false) {
 	$template->render($noheader);
 }
