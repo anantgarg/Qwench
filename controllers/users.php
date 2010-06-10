@@ -16,8 +16,6 @@ function view() {
 	$query = mysql_query($sql);
 	$user = mysql_fetch_array($query);
 
-	$basePath = basePath();
-
 	$template->set('user',$user);
 }
 
@@ -27,7 +25,7 @@ function edit() {
 	$sql = ("SELECT * FROM users WHERE id = '".escape($_SESSION['userid'])."'");
 	$query = mysql_query($sql);
 	$user = mysql_fetch_array($query);
-	$basePath = basePath();
+
 	$template->set('user',$user);
 }
 
@@ -55,8 +53,7 @@ function update() {
 
 	$slug = createslug($name);
 
-	$basePath = basePath();
-	header("Location: $basePath/users/view/{$_SESSION['userid']}/$slug");
+	header("Location: ".BASE_PATH."/users/view/{$_SESSION['userid']}/$slug");
 }
 
 function validate() {
@@ -67,8 +64,6 @@ function validate() {
 	$sql = ("SELECT * FROM users WHERE email = '".escape($email)."' AND active='1' AND password = '".escape($password)."'");
 	$query = mysql_query($sql);
 	$user = mysql_fetch_array($query);
-
-	$basePath = basePath();
 
 	if ($user['id'] > 0) {
 		$_SESSION['userid'] = $user['id'];
@@ -88,34 +83,32 @@ function validate() {
 			$url = sanitize($_POST['returnurl'],"url");
 			header("Location: {$url}");
 		}  else {
-			header("Location: $basePath");
+			header("Location: ".BASE_PATH);
 		}
 	} else {
-		header("Location: $basePath/users/login");
+		header("Location: ".BASE_PATH."/users/login");
 	}
 }
 
 function register() {
 	global $template;
-	$basePathNS = basePathNS();
-	$js = <<<EOD
-<script type="text/javascript">
-	var basePath = "$basePathNS/index.php";
+
+	$js = '<script type="text/javascript">
+	var basePath = "'.BASE_DIR.'/index.php";
 	
 	function getContent() {
 		var name = document.getElementById("name").value;
-		$.post(basePath+"/users/check", { name: name }, function(data){ $('#contentcontainer').html(data); });
-		document.getElementById('contentcontainer').style.display='block';
+		$.post(basePath+"/users/check", { name: name }, function(data) {
+			$("#contentcontainer").html(data);
+		});
+		document.getElementById("contentcontainer").style.display="block";
 	};
-</script>
-EOD;
+</script>';
 	$template->set('js',$js);
 }
 
 function create() {
 
-	$basePathNS = basePathNS();
-	$basePath = basePath();
 	$name = sanitize($_POST['name'],"string");
 	$email = sanitize($_POST['email'],"email");
 	$password= sanitize($_POST['password'],"string");
@@ -206,13 +199,13 @@ function create() {
 
 		if(SEND_EMAIL) {
 			sendActivationEmail($userid, $activeid);
-			header("Location: $basePath/users/active?action=1");
+			header("Location: ".BASE_PATH."/users/active?action=1");
 		} else {
-			header("Location: $basePath/users/active?id=$activeid");
+			header("Location: ".BASE_PATH."/users/active?id=$activeid");
 		}
 	} else {
 		writelog("errore");
-		header("Location: $basePathNS/index.php/users/register");
+		header("Location: ".BASE_DIR."/index.php/users/register");
 	}
 
 }
@@ -252,9 +245,6 @@ function index() {
 function del() {
 	authenticate(1);
 
-	$basePath = basePath();
-	$basePathNS = basePathNS();
-
 	global $path;
 	global $template;
 
@@ -265,9 +255,9 @@ function del() {
 		$sql = ("DELETE FROM users WHERE id = '".escape($userid)."' ");
 		$query = mysql_query($sql);
 
-		header("Location: $basePath/users");
+		header("Location: ".BASE_PATH."/users");
 	} else {
-		header("Location: $basePathNS/index.php");
+		header("Location: ".BASE_DIR."/index.php");
 	}
 }
 

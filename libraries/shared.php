@@ -1,12 +1,7 @@
 <?php
 
 function generateLink($controller,$action) {
-	return basePath().'/'.$controller.'/'.$action;
-}
-
-function noRender() {
-	global $noRender;
-	$noRender = TRUE;
+	return BASE_PATH.'/'.$controller.'/'.$action;
 }
 
 function authenticate($force = 0) {
@@ -18,7 +13,7 @@ function authenticate($force = 0) {
 
 	if (!empty($_SESSION['email']) && !empty($_SESSION['password'])) {
 
-		$sql = ("select id,name,points from users where email = '".escape($_SESSION['email'])."' and password = '".escape($_SESSION['password'])."'");
+		$sql = ("SELECT id,name,points FROM users WHERE email = '".escape($_SESSION['email'])."' AND password = '".escape($_SESSION['password'])."'");
 		$query = mysql_query($sql);
 		$user = mysql_fetch_array($query);
 
@@ -44,13 +39,24 @@ function authenticate($force = 0) {
 }
 
 function getLink() {
-	$s = empty($_SERVER["HTTPS"]) ? '' : ($_SERVER["HTTPS"] == "on") ? "s" : "";
-	$protocol = substr(strtolower($_SERVER["SERVER_PROTOCOL"]), 0, strpos(strtolower($_SERVER["SERVER_PROTOCOL"]), "/")) . $s;
-	$port = ($_SERVER["SERVER_PORT"] == "80") ? "" : (":".$_SERVER["SERVER_PORT"]);
+	$s = '';
+	if(!empty ($_SERVER["HTTPS"])) {
+		if($_SERVER["HTTPS"] == "on"){
+			$s = "s";
+		}
+	}
+
+	$protocol = substr( strtolower( $_SERVER["SERVER_PROTOCOL"] ), 0, strpos( strtolower( $_SERVER["SERVER_PROTOCOL"] ), "/" ) ).$s;
+
+	$port = '';
+	if($_SERVER["SERVER_PORT"] != "80"){
+		$port = ":".$_SERVER["SERVER_PORT"];
+	}
+
 	return $protocol . "://" . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
 }
 
-function sanitize($input,$type = "old") {
+function sanitize( $input, $type = "old" ) {
 
 	switch ($type) {
 		case "int":
@@ -93,8 +99,7 @@ function sanitize($input,$type = "old") {
 
 
 function escape($input) {
-	$input = mysql_real_escape_string($input);
-	return $input;
+	return mysql_real_escape_string($input);
 }
 
 function createSlug($input) {
@@ -107,15 +112,15 @@ function createSlug($input) {
 
 function fetchURL($url) {
 	$options = array(
-			CURLOPT_RETURNTRANSFER => TRUE,     // return web page
-			CURLOPT_HEADER         => FALSE,    // don't return headers
-			CURLOPT_FOLLOWLOCATION => TRUE,     // follow redirects
-			CURLOPT_ENCODING       => "",       // handle all encodings
-			CURLOPT_USERAGENT      => "spider", // who am i
-			CURLOPT_AUTOREFERER    => TRUE,     // set referer on redirect
-			CURLOPT_CONNECTTIMEOUT => 10,      // timeout on connect
-			CURLOPT_TIMEOUT        => 10,      // timeout on response
-			CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
+		CURLOPT_RETURNTRANSFER => TRUE,     // return web page
+		CURLOPT_HEADER         => FALSE,    // don't return headers
+		CURLOPT_FOLLOWLOCATION => TRUE,     // follow redirects
+		CURLOPT_ENCODING       => "",       // handle all encodings
+		CURLOPT_USERAGENT      => "spider", // who am i
+		CURLOPT_AUTOREFERER    => TRUE,     // set referer on redirect
+		CURLOPT_CONNECTTIMEOUT => 10,      // timeout on connect
+		CURLOPT_TIMEOUT        => 10,      // timeout on response
+		CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
 	);
 
 	$ch      = curl_init( $url );
@@ -129,19 +134,6 @@ function fetchURL($url) {
 	return $content;
 }
 
-function db() {
-	$dbh = mysql_connect(SERVERNAME.':'.SERVERPORT,DBUSERNAME,DBPASSWORD);
-	mysql_selectdb(DBNAME,$dbh);
-}
-
-function basePath() {
-	return BASE_PATH;
-}
-
-function basePathNS() {
-	return BASE_DIR;
-}
-
 function datify($date) {
 	return date('g:iA M dS', strtotime($date));
 }
@@ -150,16 +142,18 @@ function datifyunix($date) {
 	return date('g:iA M dS', $date);
 }
 
-function highlight($c,$q) {
-	$q=explode(' ',str_replace(array('','\\','+','*','?','[','^',']','$','(',')','{','}','=','!','<','>','|',':','#','-','_'),'',$q));
-	for($i=0;$i<sizeOf($q);$i++)
-		$c=preg_replace("/($q[$i])(?![^<]*>)/i","<span class=\"highlight\">\${1}</span>",$c);
+function highlight( $c, $q ) {
+
+	$q = explode(' ',str_replace(array('','\\','+','*','?','[','^',']','$','(',')','{','}','=','!','<','>','|',':','#','-','_'),'',$q));
+	
+	for( $i = 0; $i < sizeOf( $q ); $i++ ) {
+		$c = preg_replace("/($q[$i])(?![^<]*>)/i","<span class=\"highlight\">\${1}</span>",$c);
+	}
 	return $c;
 }
 
 
 function excerpt($text, $phrase, $radius = 100, $ending = "...") {
-
 
 	$phraseLen = strlen($phrase);
 	if ($radius < $phraseLen) {
@@ -198,20 +192,14 @@ function excerpt($text, $phrase, $radius = 100, $ending = "...") {
 } 
 
 function truncate ($text, $length = 200, $ending = "...") {
-	if (strlen($text) <= $length) {
-		return $text;
-	} else {
-		$truncate = substr($text, 0, $length - strlen($ending)).$ending;
-		return $truncate;
+	if (strlen($text) > $length) {
+		$text = substr( $text, 0, $length - strlen($ending) ).$ending;
 	}
+	return $text;
 }
 
-
-
 function sendNotificationEmail($userid,$title,$url) {
-
-
-	$sql = ("select email from users where id = '".$userid."'");
+	$sql = ("SELECT email FROM users WHERE id = '".$userid."'");
 	$query= mysql_query($sql) or die(mysql_error());
 	$result = mysql_fetch_array($query) or die(mysql_error());
 	$url = "http://".$url;
@@ -234,10 +222,9 @@ function sendNotificationEmail($userid,$title,$url) {
 
 function sendActivationEmail($userid,$activeid) {
 
-	$basePath = basePath();
-	$url= "http://".$_SERVER['SERVER_NAME']."$basePath/users/active?id=".$activeid;
+	$url= "http://".$_SERVER['SERVER_NAME'].BASE_PATH."/users/active?id=".$activeid;
 
-	$sql = ("select * from users where id = '".$userid."'");
+	$sql = ("SELECT * FROM users WHERE id = '".$userid."'");
 	$query= mysql_query($sql) or die(mysql_error());
 	$result = mysql_fetch_array($query) or die(mysql_error());
 	if (HTML_EMAIL == TRUE) {
@@ -267,5 +254,7 @@ function writelog($string) {
 	fclose($log_file);
 }
 
-db();
+$dbh = mysql_connect(SERVERNAME.':'.SERVERPORT,DBUSERNAME,DBPASSWORD);
+mysql_selectdb(DBNAME,$dbh);
+
 authenticate();

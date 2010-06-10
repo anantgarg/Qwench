@@ -33,10 +33,8 @@ if ($mod==1) {
 
 <?php
 } else {
-	$basePath = basePath();
-
 ?>
-	<meta http-equiv="refresh" content="0; url=<?php echo $basePath; ?>">
+	<meta http-equiv="refresh" content="0; url=<?php echo BASE_PATH; ?>">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">';
 <?php
 }

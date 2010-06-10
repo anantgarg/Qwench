@@ -27,9 +27,6 @@ function index() {
 function del() {
 	authenticate(1);
 
-	$basePath = basePath();
-	$basePathNS = basePathNS();
-
 	global $path;
 	global $template;
 
@@ -39,8 +36,8 @@ function del() {
 
 		$sql = ("DELETE FROM tags WHERE tag = '".escape($tag)."' ");
 		$query = mysql_query($sql);
-		header("Location: $basePath/tags");
+		header("Location: ".BASE_PATH."/tags");
 	} else {
-		header("Location: $basePath/tags");
+		header("Location: ".BASE_PATH."/tags");
 	}
 }

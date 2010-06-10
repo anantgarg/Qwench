@@ -6,7 +6,7 @@ else
 $mod = $_SESSION['moderator'];?>
 
 <h1><?php echo $user['name'];?></h1><?php if ($mod==1):?>
-<div onmouseover="mouseover()" class="questionsview_del"><a href="<?php echo basePath();?>/users/del/<?php echo $user['id']; ?>">
+<div onmouseover="mouseover()" class="questionsview_del"><a href="<?php echo BASE_PATH;?>/users/del/<?php echo $user['id']; ?>">
 x</a></div>
 <?php endif;?>
         <table style="width:960px" class="vcard">

@@ -34,11 +34,11 @@ if ($_SESSION['userid']=='') {
 }?>
 
 <?php if ($mod==1) {?>
-	<div onmouseover="mouseover()" class="questionsview_del"><a href="<?php echo basePath();?>/questions/del/<?php echo $id; ?>">x</a></div>
+	<div onmouseover="mouseover()" class="questionsview_del"><a href="<?php echo BASE_PATH;?>/questions/del/<?php echo $id; ?>">x</a></div>
 <?php }?>
 
 <?php if ($userid == $_SESSION['userid'] || $mod==1) {?>
-	<div class="questionsview_options"><a href="<?php echo basePath();?>/questions/edit/<?php echo $id;?>">edit</a></div>
+	<div class="questionsview_options"><a href="<?php echo BASE_PATH;?>/questions/edit/<?php echo $id;?>">edit</a></div>
 <?php } ?>
 
 
@@ -55,20 +55,20 @@ if ($_SESSION['userid']=='') {
 		<?php if (!empty($link)) {?>
 			<p><br/><?php echo $link;?>
 			<?php if ($cache) { ?>
-				<em><a href="<?php echo basePath();?>/questions/cache/<?php echo $id;?>" target="_blank">(view cache)</a></em>
+				<em><a href="<?php echo BASE_PATH;?>/questions/cache/<?php echo $id;?>" target="_blank">(view cache)</a></em>
 			<?php } ?>
 			</p>
 		<?php }?>
 		<ul class="holder noborder">
 			<?php foreach ($tags as $tag):?>
-			<li class="bit-box nopadding"><a href="<?php echo basePath();?>/questions?tag=<?php echo $tag;?>"><?php echo $tag;?></a></li>
+			<li class="bit-box nopadding"><a href="<?php echo BASE_PATH;?>/questions?tag=<?php echo $tag;?>"><?php echo $tag;?></a></li>
 			<?php endforeach;?>
 		</ul>
 		<div class="comments">
 			<div id="comments_q<?php echo $id;?>">
 			<?php foreach($comments as $comment):?>
 				<div class="comment">
-					<div class="comment_text"><?php echo $comment['comment'];?> - <a href="<?php echo basePath();?>/users/<?php echo $comment['userid'];?>/<?php echo $comment['username'];?>"><?php echo $comment['username'];?></a></div>
+					<div class="comment_text"><?php echo $comment['comment'];?> - <a href="<?php echo BASE_PATH;?>/users/<?php echo $comment['userid'];?>/<?php echo $comment['username'];?>"><?php echo $comment['username'];?></a></div>
 
 					<div class="commentdel" id="commentdel_<?php echo $comment['id'];?>"><?php if ($comment['userid'] == $_SESSION['userid'] || $mod==1) {
 								echo "x";
@@ -125,14 +125,14 @@ if ($_SESSION['userid']=='') {
 </div>
 
 	<?php if ($answer['userid'] == $_SESSION['userid'] || $mod==1):?>
-		<div class="questionsview_options"><a href="<?php echo basePath();?>/answers/edit/<?php echo $answer['id'];?>">edit</a></div>
+		<div class="questionsview_options"><a href="<?php echo BASE_PATH;?>/answers/edit/<?php echo $answer['id'];?>">edit</a></div>
 	<?php endif;?>
 
 	<?php if(!$kb):?>
 		<?php if($answer['accepted']):?>
 <div class="questionsview_accepted">Accepted Answer</div>
 		<?php elseif($userid == $_SESSION['userid'] || $mod==1):?>
-<div class="questionsview_accept"><a href="<?php echo basePath();?>/answers/accept?id=<?php echo $answer['id'];?>">Accept this answer</a></div>
+<div class="questionsview_accept"><a href="<?php echo BASE_PATH;?>/answers/accept?id=<?php echo $answer['id'];?>">Accept this answer</a></div>
 		<?php endif;?>
 	<?php endif;?>
 
@@ -150,7 +150,7 @@ if ($_SESSION['userid']=='') {
 			<div id="comments_a<?php echo $answer['id'];?>">
 				<?php foreach($answer['comments'] as $comment):?>
 				<div class="comment">
-					<div class="comment_text"><?php echo $comment['comment'];?> - <a href="<?php echo basePath();?>/users/view/<?php echo $comment['userid'];?>/<?php echo $comment['username'];?>"><?php echo $comment['username'];?></a></div>
+					<div class="comment_text"><?php echo $comment['comment'];?> - <a href="<?php echo BASE_PATH;?>/users/view/<?php echo $comment['userid'];?>/<?php echo $comment['username'];?>"><?php echo $comment['username'];?></a></div>
 					<div class="commentdel" id="commentdel_<?php echo $comment['id'];?>"><?php if ($comment['userid'] == $_SESSION['userid'] || $mod==1) { echo "x"; }?></div>
 					<div class="commentfave <?php if ($comment['voted'] > 0) { echo "voteselected"; }?>" id="commentfave_<?php echo $comment['id'];?>">♥</div>
 					<div class="commentfavevotes"><?php if ($comment['votes'] != 0) { echo $comment['votes']; }?></div>
