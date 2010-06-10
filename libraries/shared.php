@@ -6,7 +6,7 @@ function generateLink($controller,$action) {
 
 function noRender() {
 	global $noRender;
-	$noRender = true;
+	$noRender = TRUE;
 }
 
 function authenticate($force = 0) {
@@ -107,12 +107,12 @@ function createSlug($input) {
 
 function fetchURL($url) {
 	$options = array(
-			CURLOPT_RETURNTRANSFER => true,     // return web page
-			CURLOPT_HEADER         => false,    // don't return headers
-			CURLOPT_FOLLOWLOCATION => true,     // follow redirects
+			CURLOPT_RETURNTRANSFER => TRUE,     // return web page
+			CURLOPT_HEADER         => FALSE,    // don't return headers
+			CURLOPT_FOLLOWLOCATION => TRUE,     // follow redirects
 			CURLOPT_ENCODING       => "",       // handle all encodings
 			CURLOPT_USERAGENT      => "spider", // who am i
-			CURLOPT_AUTOREFERER    => true,     // set referer on redirect
+			CURLOPT_AUTOREFERER    => TRUE,     // set referer on redirect
 			CURLOPT_CONNECTTIMEOUT => 10,      // timeout on connect
 			CURLOPT_TIMEOUT        => 10,      // timeout on response
 			CURLOPT_MAXREDIRS      => 10,       // stop after 10 redirects
@@ -215,7 +215,7 @@ function sendNotificationEmail($userid,$title,$url) {
 	$query= mysql_query($sql) or die(mysql_error());
 	$result = mysql_fetch_array($query) or die(mysql_error());
 	$url = "http://".$url;
-	if (HTML_EMAIL == True) {
+	if (HTML_EMAIL == TRUE) {
 
 		$header = "From: ".MAILFROM."\n";
 		$header .= "MIME-Version: 1.0\n";
@@ -228,7 +228,7 @@ function sendNotificationEmail($userid,$title,$url) {
 		mail($result['email'], $subject, $emailtext, $header) ;
 
 	}
-	if (HTML_EMAIL == False)
+	if (HTML_EMAIL == FALSE)
 		mail($result['email'],"You received a response.","Someone has reply your question (".$title."). Visit the site to see it \n".$url."");
 }
 
@@ -240,7 +240,7 @@ function sendActivationEmail($userid,$activeid) {
 	$sql = ("select * from users where id = '".$userid."'");
 	$query= mysql_query($sql) or die(mysql_error());
 	$result = mysql_fetch_array($query) or die(mysql_error());
-	if (HTML_EMAIL == True) {
+	if (HTML_EMAIL == TRUE) {
 
 		$header = "From: ".MAILFROM."\n";
 		$header .= "MIME-Version: 1.0\n";
@@ -253,7 +253,7 @@ function sendActivationEmail($userid,$activeid) {
 		mail($result['email'], $subject, $emailtext, $header) ;
 
 	}
-	if (HTML_EMAIL == False)
+	if (HTML_EMAIL == FALSE)
 		mail($result['email'],"Account Activation.","Welcome to ".SITETITLE." ".$result['name']."! \nPlease copy and paste this link in your browser to activate your account: \n".$url."");
 }
 

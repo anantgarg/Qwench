@@ -35,7 +35,7 @@ EOD;
 
 	$template->set('js',$js);
 
-	
+
 }
 
 function edit() {
@@ -98,7 +98,7 @@ EOD;
 	$template->set('tags',$tags);
 	$template->set('questionid',$questionid);
 
-	
+
 }
 
 function post() {
@@ -108,17 +108,17 @@ function post() {
 	$title = sanitize($_POST['title'],"string");
 	$description = sanitize($_POST['description'],"markdown");
 	$link = sanitize($_POST['link'],"url");
-	
+
 	if(isset($_POST['notify']) && $_POST['notify'] == '1')
-	$notify = sanitize($_POST['notify'],'int');
+		$notify = sanitize($_POST['notify'],'int');
 	else
-	$notify = 0;
-	
+		$notify = 0;
+
 	$slug = createSlug($title);
-		
+
 	$kb = 0;
 
-	
+
 	if (!empty($_POST['answercheck'])) {
 		$kb = sanitize($_POST['answercheck'],"int");
 	}
@@ -157,7 +157,7 @@ function post() {
 
 				$sql = ("insert into tags_questions (tagid,questionid) values ('".escape($tagid)."','".escape($questionid)."')");
 				$query = mysql_query($sql);
-			}					
+			}
 		}
 	}
 
@@ -168,9 +168,9 @@ function post() {
 	}
 
 	if ($kb == 1) {
-		score('kb_posted',$questionid);	
+		score('kb_posted',$questionid);
 	}
-	
+
 	header("Location: $basePath/questions/view/$questionid/$slug");
 }
 
@@ -183,13 +183,13 @@ function update() {
 	$description = sanitize($_POST['description'],"markdown");
 	$link = sanitize($_POST['link'],"url");
 	$slug = createSlug($title);
-	
-	if(isset($_POST['notify']) && $_POST['notify'] == '1')
-	$notify = sanitize($_POST['notify'],'int');
-	else
-	$notify = 0;
 
-	$kb = 0;	
+	if(isset($_POST['notify']) && $_POST['notify'] == '1')
+		$notify = sanitize($_POST['notify'],'int');
+	else
+		$notify = 0;
+
+	$kb = 0;
 
 	if (!empty($_POST['answercheck'])) {
 		$kb = sanitize($_POST['answercheck'],"int");
@@ -209,7 +209,7 @@ function update() {
 		$basePath = basePath();
 		header("Location: $basePath/questions/view/{$result['id']}/{$result['slug']}");
 	}
-	
+
 	$cacheup = '';
 
 	if ($result['link'] != $link) {
@@ -217,21 +217,21 @@ function update() {
 	}
 
 	if ($result['kb'] == 1 && $kb == 0) {
-		score('kb_posted_removed',$questionid);	
+		score('kb_posted_removed',$questionid);
 	} else if ($result['kb'] == 0 && $kb == 1) {
-		score('kb_posted',$questionid);	
+		score('kb_posted',$questionid);
 	}
-	if($result['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1){
-	$sql = ("update questions set title = '".escape($title)."', kb = '".escape($kb)."', notify = '".escape($notify)."', description = '".escape($description)."' , updated = NOW(), link = '".escape($link)."', slug = '".escape($slug)."' $cacheup where userid = '".escape($result['userid'])."' and id = '".escape($questionid)."'");
-	$query = mysql_query($sql);
-	echo mysql_error();
+	if($result['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1) {
+		$sql = ("update questions set title = '".escape($title)."', kb = '".escape($kb)."', notify = '".escape($notify)."', description = '".escape($description)."' , updated = NOW(), link = '".escape($link)."', slug = '".escape($slug)."' $cacheup where userid = '".escape($result['userid'])."' and id = '".escape($questionid)."'");
+		$query = mysql_query($sql);
+		echo mysql_error();
 	}
-	 
+
 
 	$sql = ("delete from tags_questions where questionid = '".escape($questionid)."'");
 	$query = mysql_query($sql);
 
-	
+
 	if (!empty($_POST['tags'])) {
 		foreach ($_POST['tags'] as $tag) {
 			$tag = createSlug($tag);
@@ -251,25 +251,25 @@ function update() {
 
 				$sql = ("insert into tags_questions (tagid,questionid) values ('".escape($tagid)."','".escape($questionid)."')");
 				$query = mysql_query($sql);
-			}					
+			}
 		}
 	}
 
 
-	
+
 	$basePath = basePath();
 	header("Location: $basePath/questions/view/$questionid/$slug");
 }
 
 function fetchtags() {
 	noRender();
-	
+
 	$tag = createSlug($_GET['tag']);
 
 	header('Content-type: application/json; charset=utf-8');
 	$sql = ("select * from tags where tag LIKE '%".escape($tag)."%'");
 	$query = mysql_query($sql);
-	
+
 	$resultSet = array();
 	while ($result = mysql_fetch_array($query)) {
 		$resultSet[] = array("caption" => $result['tag'], "value" => $result['tag']);
@@ -278,7 +278,7 @@ function fetchtags() {
 	exit();
 }
 
- 
+
 function view() {
 	global $path;
 	global $template;
@@ -316,14 +316,16 @@ function view() {
 
 	$template->set('tags',$tags);
 
-	
+
 	$sql = ("select * from favorites where questionid = '".escape($questionid)."' and userid = '".escape($_SESSION['userid'])."'");
 	$query = mysql_query($sql);
 	$result = mysql_fetch_array($query);
 
 	$fave = 0;
-	if ($result['id'] > 0) { $fave = 1; }
-	
+	if ($result['id'] > 0) {
+		$fave = 1;
+	}
+
 	$template->set('fave',$fave);
 
 
@@ -332,7 +334,9 @@ function view() {
 	$result = mysql_fetch_array($query);
 
 	$votes = $result['count'];
-	if ($votes == '') { $votes = 0; }
+	if ($votes == '') {
+		$votes = 0;
+	}
 
 	$template->set('votes',$votes);
 
@@ -355,12 +359,12 @@ function view() {
 	$template->set('pvote',$pvote);
 
 
-	
+
 	$sql = ("select comments.id,comment,comments.userid,users.name username, comments_votes.id voted, comments.votes from comments left join users on comments.userid = users.id left join comments_votes on (comments_votes.commentid = comments.id and comments_votes.userid = '".escape($_SESSION['userid'])."') where type = '0' and typeid = '".escape($questionid)."' order by comments.created asc");
 	$query = mysql_query($sql);
 
 	$comments = array();
-	
+
 	while ($result = mysql_fetch_array($query)) {
 		$pos = strpos($result['username'],' ');
 		if ($pos > 0) {
@@ -382,18 +386,18 @@ function view() {
 	$orderby = "votes";
 	$page = 1;
 
-	if (!empty($_GET['order'])) { 
+	if (!empty($_GET['order'])) {
 		if ($_GET['order'] == "newest") {
-			$order = "created desc"; 
+			$order = "created desc";
 			$orderby = "newest";
 		} else if ($_GET['order'] == "oldest") {
-			$order = "created asc"; 
+			$order = "created asc";
 			$orderby = "oldest";
 		}
 	}
 
-	if (!empty($_GET['page'])) { 
-		$page = $_GET['page']; 
+	if (!empty($_GET['page'])) {
+		$page = $_GET['page'];
 	}
 
 	$offset = ($page-1)*ANSWERS_PER_PAGE;
@@ -404,12 +408,12 @@ function view() {
 	$paging->set('page',$page);
 	$paging->set('total',$result['count']);
 	$paging->set('order',$orderby);
-	
+
 	$template->set('pagination',$paging->display());
 
 	$paging->set('urlscheme','?order=%label%&page=1');
 	$template->set('orderOptions',$paging->displayOptions());
-	
+
 	$sqlanswer = '';
 
 	if ($page == 1) {
@@ -418,7 +422,7 @@ function view() {
 
 	$sql = ("$sqlanswer (select answers.*,users.name username from answers,users where questionid = '".escape($questionid)."' and answers.userid = users.id and answers.accepted = '0' order by $order, created desc LIMIT ".ANSWERS_PER_PAGE." OFFSET $offset)");
 	$query = mysql_query($sql);
- 
+
 
 	$answers = array();
 	while ($result = mysql_fetch_array($query)) {
@@ -429,7 +433,9 @@ function view() {
 
 		$votes = $result_nest['count'];
 
-		if ($votes == '') { $votes = 0; }
+		if ($votes == '') {
+			$votes = 0;
+		}
 
 		$sql_nest = ("select vote from answers_votes where answerid = '".escape($result['id'])."' and userid = '".escape($_SESSION['userid'])."'");
 		$query_nest = mysql_query($sql_nest);
@@ -451,9 +457,9 @@ function view() {
 		$sql_nest = ("select comments.id,comment,comments.userid,users.name username, comments_votes.id voted, comments.votes from comments left join users on comments.userid = users.id left join comments_votes on (comments_votes.commentid = comments.id and comments_votes.userid = '".escape($_SESSION['userid'])."') where type = '1' and typeid = '".escape($result['id'])."' order by comments.created asc");
 		$query_nest = mysql_query($sql_nest);
 
-		 
+
 		$comments = array();
-		
+
 		while ($result_nest = mysql_fetch_array($query_nest)) {
 			$pos = strpos($result['username'],' ');
 			if ($pos > 0) {
@@ -468,8 +474,8 @@ function view() {
 	$template->set('answers',$answers);
 
 	$basePathNS = basePathNS();
-	
-	$js = ''; 
+
+	$js = '';
 
 	if ($_SESSION['userid'] != '') {
 		$js = <<<EOD
@@ -479,7 +485,7 @@ function view() {
 		<link href="$basePathNS/css/wmd.css" type="text/css" rel="stylesheet" />
 
 EOD;
-		
+
 	}
 
 	$js .= <<<EOD
@@ -777,7 +783,7 @@ function vote() {
 	}
 
 	if ($question['qvid'] > 0) {
-		
+
 		if ($question['qvvote'] == 1 && $vote == '+1') {
 			$vote = "-1";
 			score('q_upvoted_removed',$id,$question['userid']);
@@ -819,10 +825,10 @@ function vote() {
 		}
 
 	}
-	
+
 	$sql_nest = ("update questions set votes = votes".escape($vote)." where id = '".escape($id)."'");
 	$query_nest = mysql_query($sql_nest);
-	
+
 	echo "1Thankyou for voting";
 	exit;
 
@@ -841,7 +847,7 @@ function fave() {
 	$query = mysql_query($sql);
 	$result = mysql_fetch_array($query);
 
-	if ($result['id'] > 0) { 
+	if ($result['id'] > 0) {
 		$sql = ("delete from favorites where questionid = '".escape($id)."' and userid = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
 		echo "1Question removed from your favorites";
@@ -852,7 +858,7 @@ function fave() {
 		echo "1Question added to your favorites";
 	}
 
-	
+
 	exit;
 
 }
@@ -860,34 +866,36 @@ function fave() {
 function index() {
 	global $path;
 	global $template;
-	
+
 	$conditionspre = '';
 	$conditionspost = '';
 	$conditionsselect = '';
 	$extratitle = '';
 
-	
+
 	$orderby = 'newest';
 	$order = 'created desc';
 	$defaultorder = 1;
 	$nopagination = 0;
 	$page = 1;
-	
+
 	$searchstringoriginal = '';
 
-	if (!empty($_GET['search'])) { $searchstringoriginal = sanitize($_GET['search'],"string"); }
+	if (!empty($_GET['search'])) {
+		$searchstringoriginal = sanitize($_GET['search'],"string");
+	}
 
-	if (!empty($_GET['order'])) { 
+	if (!empty($_GET['order'])) {
 		if ($_GET['order'] == "votes") {
-			$order = "votes desc"; 
+			$order = "votes desc";
 			$orderby = "votes";
 			$defaultorder = 0;
 		} else if ($_GET['order'] == "oldest") {
-			$order = "created asc"; 
+			$order = "created asc";
 			$orderby = "oldest";
 			$defaultorder = 0;
 		} else if ($_GET['order'] == "relevance") {
-			$order = "score desc"; 
+			$order = "score desc";
 			$orderby = "relevance";
 			$defaultorder = 0;
 		} else if ($_GET['order'] == "newest") {
@@ -895,20 +903,20 @@ function index() {
 		}
 	}
 
-	if (!empty($_GET['page'])) { 
-		$page = sanitize($_GET['page'],"int"); 
+	if (!empty($_GET['page'])) {
+		$page = sanitize($_GET['page'],"int");
 	}
 
 	$type = '';
 
 
-	if (!empty($_GET['type'])) { 
-		
+	if (!empty($_GET['type'])) {
+
 		$type = "&type=".sanitize($_GET['type'],"string");
-		
+
 		if (sanitize($_GET['type'],"string") == "unanswered") {
 			$conditionspost .= " questions.id NOT IN (select questions.id from questions,answers where questions.id = answers.questionid and answers.accepted = 1) and ";
-		//	$conditionspost .= " questions.accepted = 0 and questions.kb = 0 and ";
+			//	$conditionspost .= " questions.accepted = 0 and questions.kb = 0 and ";
 			$extratitle = " not yet answered";
 
 		} else {
@@ -922,7 +930,7 @@ function index() {
 
 	$search = '';
 	$searchstring = urldecode($searchstringoriginal);
-	
+
 	if (!empty($searchstringoriginal)) {
 		$search = "&search=".urlencode($searchstring);
 		$conditionspost .= " MATCH(title, description) AGAINST ('".escape($searchstring)."') and ";
@@ -949,8 +957,8 @@ function index() {
 
 	$sql = ("select count(questions.id) count from questions $conditionspre WHERE $conditionspost 1");
 	$query = mysql_query($sql);
-	$result = mysql_fetch_array($query);
- 
+	$result = mysql_fetch_array($query) or die("Query to get blah failed with error: ".mysql_error());
+
 	$template->set('questionscount',$result['count']);
 
 	$paging = new Pagination();
@@ -960,19 +968,19 @@ function index() {
 	$paging->set('total',$result['count']);
 	$paging->set('order',$orderby);
 	$paging->set('search',$search);
-	
+
 	$template->set('pagination',$paging->display());
 
 	$paging->set('urlscheme','?order=%label%'.$tag.$type.$search.'&page=1');
 	$template->set('orderOptions',$paging->displayOptions());
-	
+
 	$template->set('extratitle',$extratitle);
 
 	$sql = ("select questions.* $conditionsselect from questions $conditionspre WHERE $conditionspost 1 order by $order, created desc LIMIT ".QUESTIONS_PER_PAGE." OFFSET $offset");
 	$query = mysql_query($sql);
- 
+
 	$questions = array();
-	
+
 	while ($result = mysql_fetch_array($query)) {
 
 		$sql_nest = ("select tag from tags_questions, tags where questionid = '".escape($result['id'])."' and tags.id = tags_questions.tagid order by tag");
@@ -982,7 +990,7 @@ function index() {
 		while ($result_nest = mysql_fetch_array($query_nest)) {
 			$tags[] = $result_nest['tag'];
 		}
-			
+
 		$description = truncate(trim(sanitize(Markdown($result['description']),"string")));
 
 		if (!empty($searchstring)) {
@@ -994,38 +1002,38 @@ function index() {
 
 	}
 
-		$template->set('questions',$questions);
+	$template->set('questions',$questions);
 
 }
 
 function del() {
 	authenticate(1);
-	
+
 	$basePath = basePath();
 	$basePathNS = basePathNS();
-	
+
 	global $path;
 	global $template;
 
 	$questionid = sanitize($path[2],"int");
-	
-	if ($_SESSION['moderator']==1){
-	$sql = ("select * from questions where id = '".escape($questionid)."'");
-	$query = mysql_query($sql);
-	$result = mysql_fetch_array($query);
 
-	$sql = ("delete from questions where id = '".escape($questionid)."' ");
-	$query = mysql_query($sql);
-	
-	$sql = ("delete from answers where questionid = '".escape($questionid)."' ");
-	$query = mysql_query($sql);
+	if ($_SESSION['moderator']==1) {
+		$sql = ("select * from questions where id = '".escape($questionid)."'");
+		$query = mysql_query($sql);
+		$result = mysql_fetch_array($query);
 
-	$sql = ("delete from tags_questions where questionid = '".escape($questionid)."' ");
-	$query = mysql_query($sql);
-	
-	header("Location: $basePathNS/index.php");
+		$sql = ("delete from questions where id = '".escape($questionid)."' ");
+		$query = mysql_query($sql);
+
+		$sql = ("delete from answers where questionid = '".escape($questionid)."' ");
+		$query = mysql_query($sql);
+
+		$sql = ("delete from tags_questions where questionid = '".escape($questionid)."' ");
+		$query = mysql_query($sql);
+
+		header("Location: $basePathNS/index.php");
 	}
 	else
-	header("Location: $basePathNS/index.php");
-		
+		header("Location: $basePathNS/index.php");
+
 }

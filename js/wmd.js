@@ -93,12 +93,12 @@ Attacklab.wmdBase = function(){
 	// Checks if display is anything other than none.
 	util.isVisible = function (elem) {
 	
-	    if (window.getComputedStyle) {
-	        // Most browsers
+		if (window.getComputedStyle) {
+			// Most browsers
 			return window.getComputedStyle(elem, null).getPropertyValue("display") !== "none";
 		}
 		else if (elem.currentStyle) {
-		    // IE
+			// IE
 			return elem.currentStyle["display"] !== "none";
 		}
 	};
@@ -309,7 +309,9 @@ Attacklab.wmdBase = function(){
 			
 			// The web form container for the text box and buttons.
 			var form = doc.createElement("form");
-			form.onsubmit = function(){ return close(false); };
+			form.onsubmit = function(){
+				return close(false);
+			};
 			style = form.style;
 			style.padding = "0";
 			style.margin = "0";
@@ -332,7 +334,9 @@ Attacklab.wmdBase = function(){
 			// The ok button
 			var okButton = doc.createElement("input");
 			okButton.type = "button";
-			okButton.onclick = function(){ return close(false); };
+			okButton.onclick = function(){
+				return close(false);
+			};
 			okButton.value = "OK";
 			style = okButton.style;
 			style.margin = "10px";
@@ -343,7 +347,9 @@ Attacklab.wmdBase = function(){
 			// The cancel button
 			var cancelButton = doc.createElement("input");
 			cancelButton.type = "button";
-			cancelButton.onclick = function(){ return close(true); };
+			cancelButton.onclick = function(){
+				return close(true);
+			};
 			cancelButton.value = "Cancel";
 			style = cancelButton.style;
 			style.margin = "10px";
@@ -460,9 +466,9 @@ Attacklab.wmdBase = function(){
 			innerHeight = doc.body.clientHeight;
 		}
 		
-        var maxWidth = Math.max(scrollWidth, innerWidth);
-        var maxHeight = Math.max(scrollHeight, innerHeight);
-        return [maxWidth, maxHeight, innerWidth, innerHeight];
+		var maxWidth = Math.max(scrollWidth, innerWidth);
+		var maxHeight = Math.max(scrollHeight, innerHeight);
+		return [maxWidth, maxHeight, innerWidth, innerHeight];
 	};
 	
 	// Watches the input textarea, polling at an interval and runs
@@ -1805,13 +1811,13 @@ Attacklab.wmdBase = function(){
 				result = top.pageYOffset;
 			}
 			else 
-				if (doc.documentElement && doc.documentElement.scrollTop) {
-					result = doc.documentElement.scrollTop;
-				}
-				else 
-					if (doc.body) {
-						result = doc.body.scrollTop;
-					}
+			if (doc.documentElement && doc.documentElement.scrollTop) {
+				result = doc.documentElement.scrollTop;
+			}
+			else
+			if (doc.body) {
+				result = doc.body.scrollTop;
+			}
 			
 			return result;
 		};
@@ -1885,12 +1891,12 @@ Attacklab.wmdBase = function(){
 		
 			if (wmd.panels.preview) {
 				wmd.panels.preview.scrollTop = (wmd.panels.preview.scrollHeight - wmd.panels.preview.clientHeight) * getScaleFactor(wmd.panels.preview);
-				;
+			;
 			}
 			
 			if (wmd.panels.output) {
 				wmd.panels.output.scrollTop = (wmd.panels.output.scrollHeight - wmd.panels.output.clientHeight) * getScaleFactor(wmd.panels.output);
-				;
+			;
 			}
 		};
 		
@@ -2096,10 +2102,10 @@ Attacklab.wmdBase = function(){
 		
 		if(!/\n/.test(chunk.selection)){
 			chunk.selection = chunk.selection.replace(/^(> *)/,
-			function(wholeMatch, blanks){
-				chunk.startTag += blanks;
-				return "";
-			});
+				function(wholeMatch, blanks){
+					chunk.startTag += blanks;
+					return "";
+				});
 		}
 	};
 
@@ -2338,7 +2344,12 @@ Attacklab.wmdBase = function(){
 
 Attacklab.wmd_env = {};
 Attacklab.account_options = {};
-Attacklab.wmd_defaults = {version:1, output:"markdown", lineLength:40, delayLoad:false};
+Attacklab.wmd_defaults = {
+	version:1,
+	output:"markdown",
+	lineLength:40,
+	delayLoad:false
+};
 
 if(!Attacklab.wmd)
 {

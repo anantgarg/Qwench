@@ -18,7 +18,7 @@ define('ALLOW_VISITORS',FALSE); // If you want only logged in users to view the 
 define('SALT','salt'); // Do not change salt after users have registered
 
 date_default_timezone_set("Europe/Athens"); // Set default timezone if you want or comment the line below
-define('BASE_DIR','');
+define('BASE_DIR','/qwench-pets');
 
 // If URL-Rewriting does not work then set
 // define('BASE_PATH',BASE_DIR.'/index.php');
@@ -27,7 +27,8 @@ define('BASE_DIR','');
 define('BASE_PATH',BASE_DIR);
 
 //email configuration
-define('HTML_EMAIL',FALSE);
+define('SEND_EMAIL', FALSE);
+define('HTML_EMAIL', FALSE);
 define('MAILFROM','me@example.com');
 
 define('SITETITLE','Qwench');
@@ -35,5 +36,5 @@ define('SITETITLE','Qwench');
 
 //To use reCAPTCHA you must get an API key from 
 //http://recaptcha.net/api/getkey
-define('PRIVATEKEY','privatekey');
-define('PUBLICKEY','publickey');
+define('PRIVATEKEY','6LfvwLoSAAAAAKttPX7Wfz1G_NY19wUpe3EBhvm7');
+define('PUBLICKEY','6LfvwLoSAAAAAJXXRGjl_q2wjiMGcqHCqLoAtRKl');

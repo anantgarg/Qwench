@@ -1,6 +1,7 @@
 <?php
 
 function post() {
+
 	if ($_SESSION['userid'] == '') {
 		echo "0";
 		exit;
@@ -13,6 +14,7 @@ function post() {
 	$id = sanitize($_POST['id'],"string");
 	$type = substr($id,0,1);
 	$typeid = substr($id,1);
+
 	if ($type == 'q') {
 		$type = 0;
 	} else {
@@ -25,12 +27,12 @@ function post() {
 		echo "0An error has occurred. Please try again later";
 		exit;
 	}
-	
-	$sql = ("insert into comments (type,comment,votes,created,userid,typeid) values ('".escape($type)."','".escape($comment)."','0',NOW(),'".escape($_SESSION['userid'])."','".escape($typeid)."')");
+
+	$sql = ("INSERT INTO comments (type,comment,votes,created,userid,typeid) VALUES ('".escape($type)."','".escape($comment)."','0',NOW(),'".escape($_SESSION['userid'])."','".escape($typeid)."')");
 	$query = mysql_query($sql);
- 
+
 	$template->set('comment',$comment);
-	
+
 	$firstname = $_SESSION['name'];
 	$pos = strpos($_SESSION['name'],' ');
 	if ($pos > 0) {
@@ -50,7 +52,7 @@ function vote() {
 
 	$id = sanitize($_POST['id'],"int");
 
-	$sql = ("select userid from comments where id = '".escape($id)."'");
+	$sql = ("SELECT userid FROM comments WHERE id = '".escape($id)."'");
 	$query = mysql_query($sql);
 	$comment = mysql_fetch_array($query);
 
@@ -59,23 +61,23 @@ function vote() {
 		exit;
 	}
 
-	$sql = ("select * from comments_votes where commentid = '".escape($id)."' and userid = '".escape($_SESSION['userid'])."'");
+	$sql = ("SELECT * FROM comments_votes WHERE commentid = '".escape($id)."' AND userid = '".escape($_SESSION['userid'])."'");
 	$query = mysql_query($sql);
 	$result = mysql_fetch_array($query);
 
 
-	if ($result['id'] > 0) { 
+	if ($result['id'] > 0) {
 
-		$sql = ("delete from comments_votes where commentid = '".escape($id)."' and userid = '".escape($_SESSION['userid'])."'");
+		$sql = ("DELETE FROM comments_votes WHERE commentid = '".escape($id)."' AND userid = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
-		$sql_nest = ("update comments set votes = votes-1 where id = '".escape($id)."'");
+		$sql_nest = ("UPDATE comments SET votes = votes-1 WHERE id = '".escape($id)."'");
 		$query_nest = mysql_query($sql_nest);
 		score('c_upvoted_removed',$id,$comment['userid']);
-	
+
 	} else {
-		$sql = ("insert into comments_votes (commentid,userid) values ('".escape($id)."','".escape($_SESSION['userid'])."')");
+		$sql = ("INSERT INTO comments_votes (commentid,userid) VALUES ('".escape($id)."','".escape($_SESSION['userid'])."')");
 		$query = mysql_query($sql);
-		$sql_nest = ("update comments set votes = votes+1 where id = '".escape($id)."'");
+		$sql_nest = ("UPDATE comments SET votes = votes+1 WHERE id = '".escape($id)."'");
 		$query_nest = mysql_query($sql_nest);
 		score('c_upvoted',$id,$comment['userid']);
 	}
@@ -89,11 +91,11 @@ function del() {
 
 	$id = sanitize($_POST['id'],"int");
 
-	$sql = ("select userid from comments where id = '".escape($id)."'");
+	$sql = ("SELECT userid FROM comments WHERE id = '".escape($id)."'");
 	$query = mysql_query($sql);
 	$comment = mysql_fetch_array($query);
 
-	$sql = ("delete from comments where id = '".escape($id)."' and userid = '".escape($comment['userid'])."'");
+	$sql = ("DELETE FROM comments WHERE id = '".escape($id)."' AND userid = '".escape($comment['userid'])."'");
 	$query = mysql_query($sql);
 
 	echo "1Comment successfully deleted";

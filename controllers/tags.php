@@ -3,45 +3,44 @@
 function index() {
 	global $template;
 
-	$sql = ("select count(id) count from tags");
+	$sql = ("SELECT COUNT(id) count FROM tags");
 	$query = mysql_query($sql);
 	$result = mysql_fetch_array($query);
 	$template->set('count',$result['count']);
 
-	$sql = ("select tag, count(tags_questions.questionid) tagcount from tags, tags_questions where tags.id = tags_questions.tagid group by tagid order by tagcount desc");
+	$sql = ("SELECT tag, COUNT(tags_questions.questionid) tagcount FROM tags, tags_questions WHERE tags.id = tags_questions.tagid GROUP BY tagid ORDER BY tagcount DESC");
 	$query = mysql_query($sql);
 
 	$tags = array();
-	
+
 	while ($result = mysql_fetch_array($query)) {
-		$tags[] = array ( "tag" => $result['tag'], "count" => $result['tagcount']);
+		$tags[] = array (
+			"tag" => $result['tag'],
+			"count" => $result['tagcount']
+		);
 	}
 
 	$template->set('tags',$tags);
-
-	/* Add Pagination Later */
+	// TODO Add Pagination
 }
 
 function del() {
 	authenticate(1);
-	
+
 	$basePath = basePath();
 	$basePathNS = basePathNS();
-	
+
 	global $path;
 	global $template;
-	
+
 	$tag = $_GET['tag'];
-	
-if (isset($_SESSION['moderator'])==1){
 
-	$sql = ("delete from tags where tag = '".escape($tag)."' ");
-	$query = mysql_query($sql);
+	if (isset($_SESSION['moderator'])==1) {
 
-	
-	header("Location: $basePath/tags");
+		$sql = ("DELETE FROM tags WHERE tag = '".escape($tag)."' ");
+		$query = mysql_query($sql);
+		header("Location: $basePath/tags");
+	} else {
+		header("Location: $basePath/tags");
 	}
-	else
-	header("Location: $basePath/tags");
-		
 }

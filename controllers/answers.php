@@ -5,7 +5,7 @@ function edit() {
 
 	global $path;
 	global $template;
- 	$answerid = sanitize($path[2],"int");
+	$answerid = sanitize($path[2],"int");
 
 	$basePath = basePath();
 	$basePathNS = basePathNS();
@@ -43,19 +43,19 @@ function post() {
 		header("Location: $basePath/questions/view/$questionid/{$result['slug']}");
 		exit;
 	}
-	
-	
+
+
 	$sql = ("insert into answers (questionid,description,created,updated,userid,accepted,votes) values ('".escape($questionid)."','".escape($description)."',NOW(),NOW(),'".escape($_SESSION['userid'])."','0','0')");
 	$query = mysql_query($sql);
 
 	$sql = ("update questions set updated = NOW(), answers=answers+1 where id = '".escape($result['id'])."'");
 	$query = mysql_query($sql);
-	
+
 	$url= "".$_SERVER['SERVER_NAME']."$basePath/questions/view/$questionid/{$result['slug']}";
 	if( $result['notify']==1) {
-	sendNotificationEmail($result['userid'],$result['title'],$url);
+		sendNotificationEmail($result['userid'],$result['title'],$url);
 	}
-	
+
 	header("Location: $basePath/questions/view/$questionid/{$result['slug']}");
 
 }
@@ -78,16 +78,16 @@ function update() {
 		$basePath = basePath();
 		header("Location: $basePath/questions/view/{$qresult['id']}/{$qresult['slug']}");
 	}
-	if($qresult['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1){
-	$sql = ("update answers set description = '".escape($description)."', updated = NOW() where userid = '".escape($qresult['userid'])."' and id = '".escape($answerid)."'");
-	$query = mysql_query($sql);
+	if($qresult['userid'] == $_SESSION['userid'] || $_SESSION['moderator']==1) {
+		$sql = ("update answers set description = '".escape($description)."', updated = NOW() where userid = '".escape($qresult['userid'])."' and id = '".escape($answerid)."'");
+		$query = mysql_query($sql);
 
-	$sql = ("update questions set updated = NOW() where id = '".escape($result['questionid'])."'");
-	$query = mysql_query($sql);
+		$sql = ("update questions set updated = NOW() where id = '".escape($result['questionid'])."'");
+		$query = mysql_query($sql);
 
-	$basePath = basePath();
+		$basePath = basePath();
 
-	header("Location: $basePath/questions/view/{$qresult['id']}/{$qresult['slug']}");
+		header("Location: $basePath/questions/view/{$qresult['id']}/{$qresult['slug']}");
 	}
 }
 
@@ -117,7 +117,7 @@ function vote() {
 	}
 
 	if ($answer['qvid'] > 0) {
-		
+
 		if ($answer['qvvote'] == 1 && $vote == '+1') {
 			$vote = "-1";
 			score('a_upvoted_removed',$id,$answer['userid']);
@@ -159,10 +159,10 @@ function vote() {
 		}
 
 	}
-	
+
 	$sql_nest = ("update answers set votes = votes".escape($vote)." where id = '".escape($id)."'");
 	$query_nest = mysql_query($sql_nest);
-	
+
 	echo "1Thankyou for voting";
 	exit;
 
@@ -199,7 +199,7 @@ function accept() {
 		$query = mysql_query($sql);
 		$sql = ("update questions set accepted = '1' where id = '".escape($result['id'])."' and userid = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
-		
+
 		score('a_accepted',$answerid,$answer['userid']);
 
 	}
@@ -240,14 +240,14 @@ function del() {
 function del() {
 
 	$id = sanitize($_POST['id'],"int");
-	
+
 	$sql = ("select questionid from answers where id ='".escape($id)."'");
 	$query = mysql_query($sql);
 	$questionid = mysql_result($query,0);
-	
+
 	$sql = ("delete from answers where id = '".escape($id)."'");
 	$query = mysql_query($sql);
-	
+
 	$sql = ("update questions set  answers=answers-1 where id = '".$questionid."'");
 	$query = mysql_query($sql);
 

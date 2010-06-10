@@ -247,12 +247,18 @@ foreach ($q as $query)
 }
 ?>
 		<p>Database import completed.</p>
+		<p>Please rename or remove the install.php!!</p>
 		<div style="width:900px;text-align:center;"><a href="index.php">Go to your new Quench installation!</a></div>
 <?php
 }
 elseif(isset($_POST['doconfig']))
 {
 
+	$send_email = 'FALSE';
+	if(!empty ($_POST['sendemail'])){
+		$send_email = 'TRUE';
+	}
+	
 	$html_email = 'FALSE';
 	if(!empty($_POST['html']))
 	{
@@ -306,6 +312,7 @@ define(\'BASE_DIR\',\''.$base_dir.'\');
 '.$base_path.'
 
 //email configuration
+define(\'SEND_EMAIL\','.$send_email.');
 define(\'HTML_EMAIL\','.$html_email.');
 define(\'MAILFROM\',\''.$_POST['mailfrom'].'\');
 
@@ -325,7 +332,7 @@ define(\'PUBLICKEY\',\''.$_POST['publickey'].'\');
 		<h3>Configuration File Created!</h3>
 		Now you can proceed to the next step.<br><br><br>
 		<form name="configform" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
-			<div style="width:900px;text-align:center;"><a class="go" href="javascript:document.configform.submit()">Write Configuration</a></div>
+			<div style="width:900px;text-align:center;"><a class="go" href="javascript:document.configform.submit()">Import Database</a></div>
 			<input type="hidden" value="true" name="dodatabase">
 		</form>
 
@@ -434,12 +441,16 @@ else
 				</tr>
 				<tr>
 					<td>Allow visitors</td>
-					<td><input name="allowvisit" type="checkbox"/></td>
+					<td><input type="checkbox" name="allowvisit" checked="yes" /></td>
 				</tr>
 			</table>
 
 			<h3>Email Configuration</h3>
 			<table>
+				<tr>
+					<td>Send emails?</td>
+					<td><input type="checkbox" name="sendemail" checked="yes" /></td>
+				</tr>
 				<tr>
 					<td>Send emails from</td>
 					<td><input type="textbox" class="textbox" name="mailfrom" value="me@example.com" /></td>

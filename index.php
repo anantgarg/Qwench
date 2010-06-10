@@ -24,9 +24,9 @@ if (empty($_GET['type'])) {
 	$_GET['type'] = "active";
 }
 
-$norender = false;
+$norender = FALSE;
 
-$noheader = false;
+$noheader = FALSE;
 
 if (!empty($path[0])) {
 	$controller = $path[0];
@@ -45,26 +45,29 @@ if (!empty($path[1])) {
 
 /* Include Libraries */
 
-include_once ROOT.DS.'config.php';
-include_once ROOT.DS.'libraries'.DS.'template.class.php';
-include_once ROOT.DS.'libraries'.DS.'helper.class.php';
+include_once(ROOT.DS.'config.php');
+include_once(ROOT.DS.'libraries'.DS.'template.class.php');
+include_once(ROOT.DS.'libraries'.DS.'helper.class.php');
 
 $template = new Template($controller,$action);
 $helper = new Helper();
 
-include_once ROOT.DS.'libraries'.DS.'shared.php';
-include_once ROOT.DS.'libraries'.DS.'markdown.php';
-include_once ROOT.DS.'libraries'.DS.'timeago.php';
-include_once ROOT.DS.'libraries'.DS.'score.php';
-include_once ROOT.DS.'libraries'.DS.'pagination.class.php';
-include_once ROOT.DS.'controllers'.DS.'helpers.php';
-require_once ROOT.DS.'libraries'.DS.'recaptchalib.php';
-/* Debug Mode */
+include_once(ROOT.DS.'libraries'.DS.'shared.php');
+include_once(ROOT.DS.'libraries'.DS.'markdown.php');
+include_once(ROOT.DS.'libraries'.DS.'timeago.php');
+include_once(ROOT.DS.'libraries'.DS.'score.php');
+include_once(ROOT.DS.'libraries'.DS.'pagination.class.php');
+include_once(ROOT.DS.'controllers'.DS.'helpers.php');
+require_once(ROOT.DS.'libraries'.DS.'recaptchalib.php');
 
+/* Debug Mode */
 error_reporting(E_ALL);
 ini_set('display_errors','On');
 
 /* Basic Bootstrapping */
+if(file_exists(ROOT.DS.'install.php')){
+	header("Location: install.php");
+}
 
 if(!file_exists(ROOT.DS.'controllers'.DS.$controller.'.php')) {
 	$controller = "error"; // error controller name
@@ -79,6 +82,6 @@ if (function_exists($action)) {
 	call_user_func('index');
 }
 
-if ($norender == false) {
+if ($norender == FALSE) {
 	$template->render($noheader);
 }
