@@ -80,6 +80,10 @@ function validate() {
 			header("Location: $basePath");
 		}
 	} else {
+		$_SESSION['flash'] = array(
+			'type' => 'error',
+			'text' => 'Username or password incorrect.',
+		);		
 		header("Location: $basePath/users/login");
 	}
 	exit;

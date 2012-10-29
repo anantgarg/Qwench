@@ -40,6 +40,10 @@ function authenticate($force = 0) {
 	
 	if ($loggedin == 0) {
 		$_SESSION['userid'] = '';
+		$_SESSION['flash'] = array(
+			'type' => 'error',
+			'text' => 'Please login and try again.',
+		);	
 	}
 }
 
