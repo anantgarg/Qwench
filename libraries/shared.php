@@ -205,5 +205,12 @@ function truncate ($text, $length = 200, $ending = "...") {
 	} 
 }
 
+function flash() {
+	$flash = (isset($_SESSION['flash'])) ? $_SESSION['flash'] : false;
+	if ($flash) {
+		unset($_SESSION['flash']);
+		return sprintf('<div class="flash %s">%s</div>',$flash['type'],$flash['text'] );
+	}
+}
 db();
 authenticate();

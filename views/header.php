@@ -21,6 +21,7 @@
 <?php if(!empty($js)):?><?php echo $js;?><?php endif;?>
 </head>
 <body onload="prettyPrint()">
+<?= flash(); ?>
 <div id="navigation"><div class="navcenter">
 
 <form action="<?php echo basePath();?>/questions" method="get" style="float:left;width:420px;text-align:left;"><input type="textbox" name="search" style="color: #999" value="<?php if (!empty($searchstring)):?><?php echo $searchstring;?><?php endif?>"></form>
