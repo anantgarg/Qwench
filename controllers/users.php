@@ -82,6 +82,7 @@ function validate() {
 	} else {
 		header("Location: $basePath/users/login");
 	}
+	exit;
 }
 
 function register() {
