@@ -99,10 +99,20 @@ function create() {
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
 	
-	$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
-	$query = mysql_query($sql);
-	
-	validate();
+	$sql = ("select 1 from users where email = '".escape($email)."'");
+	if ( mysql_num_rows($sql) > 0) {
+		$_SESSION['flash'] = array(
+			'type' => 'error',
+			'text' => 'This email address is already in use.',
+
+		);
+	}
+
+	if (!isset($_SESSION['flash'])) {
+		$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
+		$query = mysql_query($sql);
+		validate();
+	}
 	
 }
 
