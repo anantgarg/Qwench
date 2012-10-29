@@ -11,9 +11,8 @@ define('ROOT',DIRNAME(__FILE__));
 define('DS',DIRECTORY_SEPARATOR);
 
 /* Get Basic Details */
-
-$path = explode("/", substr($_SERVER['PATH_INFO'],1));
-
+$pi = (isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '');
+$path = explode("/", substr($pi,1));
 $controller = 'questions';
 $action = 'index';
 if (empty($_GET['type'])) { $_GET['type'] = "active"; }
