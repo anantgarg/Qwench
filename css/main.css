@@ -743,3 +743,6 @@ html {
 	line-height:15px;
 	margin: 0 auto;
 }
+.button {
+	cursor: pointer;
+}
