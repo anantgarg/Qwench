@@ -743,3 +743,17 @@ html {
 	line-height:15px;
 	margin: 0 auto;
 }
+.flash {
+	border:0;
+	display: block;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+	background-color: #D3F6FF;
+	color: #333;
+	font: 17px/36px arial, sans-serif;
+	font-weight: bold;
+}
+.button {
+	cursor: pointer;
+}
