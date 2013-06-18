@@ -42,7 +42,7 @@ function cform() {
 <form action="<?php echo generateLink("questions","post");?>" method="post" onsubmit="javascript:return cform();">
 
 <h1>What would you like to ask or contribute?</h1>
-<input type="textbox" class="textbox" name="title" id="title" tabindex="1"/><br/>
+<input type="textbox" placeholder="Title for your question" class="textbox" name="title" id="title" tabindex="1"/><br/>
  
 
 <div id="wmd-editor" class="wmd-panel" style="padding-top:10px">
@@ -56,7 +56,7 @@ function cform() {
 <input type="textbox" class="textbox" name="link" id="link" tabindex="3"/><br/>
 
 <h3>Tags</h3>
-<select class="textbox" name="tags" id="tags" tabindex="4"/></select>
+<select class="textbox" placeholder="Tag your question" name="tags" id="tags" tabindex="4"/></select>
 <br/>
 <input type="checkbox" id="answercheck" name="answercheck" value="1" onclick="fanswer();" tabindex="4"> Make this a knowledge-base article
 <br/><br/>

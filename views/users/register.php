@@ -47,10 +47,10 @@ function cform() {
 <h1>Register</h1>
 
 <h3>Name</h3>
-<input type="textbox" class="textbox" name="name" id="name"/><br/>
+<input type="textbox" placeholder="Your diplayname" class="textbox" name="name" id="name"/><br/>
 
 <h3>E-mail</h3>
-<input type="textbox" class="textbox" name="email" id="email"/><br/>
+<input type="textbox" placeholder="A valid email address (for Gravatar)" class="textbox" name="email" id="email"/><br/>
 
 <h3>Password</h3>
 <input type="password" class="textbox" name="password" id="password"/></select>
