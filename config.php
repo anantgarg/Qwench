@@ -2,13 +2,16 @@
 
 // Database Details
 define('SERVERNAME','localhost');
-define('SERVERPORT','3306');
+define('SERVERPORT','3309');
 define('DBUSERNAME','root');
-define('DBPASSWORD','yourpassword');
+define('DBPASSWORD','ifewalter');
 define('DBNAME','qwench');
 
 Define('ANSWERS_PER_PAGE','10');
 define('QUESTIONS_PER_PAGE','10');
+
+//if you want to enable production mode vs debug mode (useful for error reporting)
+define('DEBUG_MODE','1');
 
 // If you want only logged in users to view the site
 define('ALLOW_VISITORS','1');

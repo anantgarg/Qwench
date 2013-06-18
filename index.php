@@ -38,10 +38,14 @@ include_once ROOT.DS.'libraries'.DS.'timeago.php';
 include_once ROOT.DS.'libraries'.DS.'score.php';
 include_once ROOT.DS.'libraries'.DS.'pagination.class.php';
 include_once ROOT.DS.'controllers'.DS.'helpers.php';
-/* Debug Mode */
 
+
+/* Check Debug vs Production Mode */
+if (DEBUG_MODE == '1')
+{
 error_reporting(E_ALL);
 ini_set('display_errors','On');
+}
 
 /* Basic Bootstrapping */
 

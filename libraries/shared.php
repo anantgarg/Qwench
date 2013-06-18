@@ -131,7 +131,7 @@ function fetchURL($url) {
 
 function db() {
 	$dbh = mysql_connect(SERVERNAME.':'.SERVERPORT,DBUSERNAME,DBPASSWORD);
-	mysql_selectdb(DBNAME,$dbh);
+	return mysql_selectdb(DBNAME,$dbh);
 }
 
 function basePath() {

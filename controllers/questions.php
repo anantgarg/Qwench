@@ -904,7 +904,7 @@ function index() {
 
 	$sql = ("select count(questions.id) count from questions $conditionspre WHERE $conditionspost 1");
 	$query = mysql_query($sql);
-	$result = mysql_fetch_array($query);
+	$result = mysql_fetch_array(mysql_query($sql));
  
 	$template->set('questionscount',$result['count']);
 

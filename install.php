@@ -3,28 +3,39 @@
 include (dirname(__FILE__))."/config.php";
 include (dirname(__FILE__))."/libraries/shared.php";
 
-db();
+$message = 'Database import completed. ';
 
-$body = '';
-$path = '';
+/*  We cannot assume the use configured the database right.
+    So lets be sure we can connect to the database first.
+*/
 
-$rollback = 0;
-$errors = '';
+    if (db() == false)
+    {
+      $message = 'Error connecting to the database. <br/>  Please edit the config.php file to match you database settings.';
+    }
+    else
+    {
 
-	$content = <<<EOD
+      $body = '';
+      $path = '';
 
-DROP TABLE IF EXISTS `activities`;
-SET @saved_cs_client     = @@character_set_client;
-SET character_set_client = utf8;
-CREATE TABLE `activities` (
-  `id` int(10) unsigned NOT NULL auto_increment,
-  `userid` int(10) unsigned NOT NULL,
-  `activity` varchar(255) NOT NULL default '',
-  `points` int(11) NOT NULL,
-  `created` datetime NOT NULL,
-  `activityid` int(10) unsigned NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+      $rollback = 0;
+      $errors = '';
+
+      $content = <<<EOD
+
+      DROP TABLE IF EXISTS `activities`;
+      SET @saved_cs_client     = @@character_set_client;
+      SET character_set_client = utf8;
+      CREATE TABLE `activities` (
+        `id` int(10) unsigned NOT NULL auto_increment,
+        `userid` int(10) unsigned NOT NULL,
+        `activity` varchar(255) NOT NULL default '',
+        `points` int(11) NOT NULL,
+        `created` datetime NOT NULL,
+        `activityid` int(10) unsigned NOT NULL,
+        PRIMARY KEY  (`id`)
+        ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `answers`;
@@ -40,7 +51,7 @@ CREATE TABLE `answers` (
   `accepted` int(10) unsigned NOT NULL,
   `votes` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `answers_votes`;
@@ -52,7 +63,7 @@ CREATE TABLE `answers_votes` (
   `userid` int(10) unsigned NOT NULL,
   `vote` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `comments`;
@@ -67,7 +78,7 @@ CREATE TABLE `comments` (
   `userid` int(10) unsigned NOT NULL,
   `typeid` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `comments_votes`;
@@ -78,7 +89,7 @@ CREATE TABLE `comments_votes` (
   `commentid` int(10) unsigned NOT NULL,
   `userid` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `favorites`;
@@ -89,7 +100,7 @@ CREATE TABLE `favorites` (
   `questionid` int(10) unsigned NOT NULL,
   `userid` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 
@@ -112,7 +123,7 @@ CREATE TABLE `questions` (
   `slug` text NOT NULL,
   PRIMARY KEY  (`id`),
   FULLTEXT KEY `title` (`title`,`description`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 SET character_set_client = @saved_cs_client;
 
 
@@ -125,7 +136,7 @@ CREATE TABLE `questions_votes` (
   `userid` int(10) unsigned NOT NULL,
   `vote` int(11) NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 
@@ -136,7 +147,7 @@ CREATE TABLE `tags` (
   `id` int(10) unsigned NOT NULL auto_increment,
   `tag` varchar(255) character set latin1 NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `tags_questions`;
@@ -147,7 +158,7 @@ CREATE TABLE `tags_questions` (
   `tagid` int(10) unsigned NOT NULL,
   `questionid` int(10) unsigned NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 DROP TABLE IF EXISTS `users`;
@@ -163,40 +174,54 @@ CREATE TABLE `users` (
   `created` datetime NOT NULL,
   `lastactivity` datetime NOT NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
+  ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC;
 SET character_set_client = @saved_cs_client;
 
 EOD;
- 
-	$q = preg_split('/;[\r\n]+/',$content);
 
-	foreach ($q as $query) {
-		if (strlen($query) > 4) {
-		$result = mysql_query($query);
-			if (!$result) {
-				$rollback = 1;
-				$errors .= mysql_error()."<br/>\n";
-			}
-		}
-	}
+$q = preg_split('/;[\r\n]+/',$content);
+
+foreach ($q as $query) {
+  if (strlen($query) > 4) {
+    $result = mysql_query($query);
+    if (!$result) {
+      $rollback = 1;
+      $errors .= mysql_error()."<br/>\n";
+    }
+  }
+}
+}
 
 ?>
 <html>
 <head>
-<title>Install</title>
-<style>
-body {
-padding:0;
-margin:0;
-font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
-font-size: 14px;
-color: #333333;
-
-}
-</style>
+  <title>Install</title>
+  <style>
+  body {
+    padding:0;
+    margin:0;
+    font-family: "Lucida Grande",Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+    font-size: 14px;
+    color: #333333;
+  }
+  a
+  {
+    color: blue;
+    font-style: italic;
+    text-decoration: none;
+  }
+  </style>
 </head>
 <body>
-<div class="setup">Database import completed.
-</div>
+  <div class="setup"><?php echo $message; ?>
+    <br/>
+    <font style="color: red;">Security Alert!!!</font>
+    <br/>
+    <strong>Delete the install.php file from your server.</strong>
+    <br/>
+    <br/>
+<a href="index.php"> Try out your shiny new server. click here
+</a>
+  </div>
 </body>
 </html>

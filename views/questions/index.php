@@ -67,4 +67,5 @@
 </div> 
 <?php endif;?>
 
-<?php else:?><h3>Sorry, we could not find what you were looking for. You may want to have a look at <a href="<?php echo basePath();?>/tags">tags</a>.</h3><?php endif;?>
+<?php else:?><h3>Sorry, we could not find what you were looking for. You may want to have a look at 
+<a href="<?php echo basePath();?>/tags">tags</a>. <br/><br/> Or <a href="<?php echo basePath();?>/questions/ask">ask questions</a>.</h3><?php endif;?>
