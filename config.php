@@ -2,9 +2,9 @@
 
 // Database Details
 define('SERVERNAME','localhost');
-define('SERVERPORT','3309');
-define('DBUSERNAME','root');
-define('DBPASSWORD','ifewalter');
+define('SERVERPORT','3306');
+define('DBUSERNAME','your_db_username');
+define('DBPASSWORD','your_db_password');
 define('DBNAME','qwench');
 
 Define('ANSWERS_PER_PAGE','10');
