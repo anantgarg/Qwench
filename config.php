@@ -39,3 +39,8 @@ define('BASE_DIR','/qwench');
 // define('BASE_PATH',BASE_DIR.'/index.php');
 // If URL-Rewriting works, then leave the line below as is
 define('BASE_PATH',BASE_DIR);
+<<<<<<< HEAD
+=======
+define('SITE_TITLE', 'Your Site');
+// define('DEBUG_ENABLED', true);
+>>>>>>> 4aa8e9857c003ec9b357c467d7ace2285c06e557
