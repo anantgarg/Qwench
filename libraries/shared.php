@@ -40,10 +40,6 @@ function authenticate($force = 0) {
 	
 	if ($loggedin == 0) {
 		$_SESSION['userid'] = '';
-		$_SESSION['flash'] = array(
-			'type' => 'error',
-			'text' => 'Please login and try again.',
-		);	
 	}
 }
 
@@ -209,12 +205,5 @@ function truncate ($text, $length = 200, $ending = "...") {
 	} 
 }
 
-function flash() {
-	$flash = (isset($_SESSION['flash'])) ? $_SESSION['flash'] : false;
-	if ($flash) {
-		unset($_SESSION['flash']);
-		return sprintf('<div class="flash %s">%s</div>',$flash['type'],$flash['text'] );
-	}
-}
 db();
 authenticate();

@@ -453,7 +453,6 @@ function view() {
 
 	$template->set('answers',$answers);
 
-	$basePath = basePath();
 	$basePathNS = basePathNS();
 	
 	$js = '';
@@ -475,7 +474,7 @@ EOD;
 
 <script>
 
-	var basePath = "$basePath/index.php";
+	var basePath = "/qwench/index.php";
 
 
 	function vote(elem,type,voted) {

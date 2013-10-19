@@ -6,7 +6,7 @@ function login() {
 }
 
 function view() {
-	
+
 	global $path;
 	global $template;
 
@@ -39,7 +39,7 @@ function update() {
 	$email = sanitize($_POST['email'],"email");
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
-	
+
 	if (!empty($_POST['password'])) {
 		$sql = ("update users set password = '".escape($password)."' where id = '".escape($_SESSION['userid'])."'");
 		$query = mysql_query($sql);
@@ -58,10 +58,10 @@ function validate() {
 	$email = sanitize($_POST['email'],"email");
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
-	
-	$sql = ("select * from users where email = '".escape($email)."' and password = '".escape($password)."'");
-	$query = mysql_query($sql);
-	$user = mysql_fetch_array($query);
+
+	$sql = "select * from users where email = '".escape($email)."' and password = '".escape($password)."'";
+	$query_result = mysql_query($sql);
+	$user = mysql_fetch_array($query_result);
 
 	$basePath = basePath();
 
@@ -80,13 +80,8 @@ function validate() {
 			header("Location: $basePath");
 		}
 	} else {
-		$_SESSION['flash'] = array(
-			'type' => 'error',
-			'text' => 'Username or password incorrect.',
-		);		
 		header("Location: $basePath/users/login");
 	}
-	exit;
 }
 
 function register() {
@@ -98,22 +93,12 @@ function create() {
 	$email = sanitize($_POST['email'],"email");
 	$password = sanitize($_POST['password'],"string");
 	$password = sha1(SALT.$password.$email);
-	
-	$sql = ("select 1 from users where email = '".escape($email)."'");
-	if ( mysql_num_rows($sql) > 0) {
-		$_SESSION['flash'] = array(
-			'type' => 'error',
-			'text' => 'This email address is already in use.',
 
-		);
-	}
+	$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
+	$query = mysql_query($sql);
 
-	if (!isset($_SESSION['flash'])) {
-		$sql = ("insert into users (name,email,password,points,moderator,created,lastactivity) values ('".escape($name)."','".escape($email)."','".escape($password)."','1','0',NOW(),NOW())");
-		$query = mysql_query($sql);
-		validate();
-	}
-	
+	validate();
+
 }
 
 function logout() {
@@ -135,7 +120,7 @@ function index() {
 	$query = mysql_query($sql);
 
 	$users = array();
-	
+
 	while ($result = mysql_fetch_array($query)) {
 		$users[] = array ("id" => $result['id'], "name" => $result['name'], "points" => $result['points']);
 	}

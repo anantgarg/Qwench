@@ -4,7 +4,7 @@
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/> 
 <head>
-<title><?=SITE_TITLE;?></title>
+<title>Qwench</title>
 <link type="text/css" rel="stylesheet" href="<?php echo basePathNS();?>/css/main.css">
 <link type="text/css" rel="stylesheet" href="<?php echo basePathNS();?>/css/tagscomplete.css">
 
@@ -21,7 +21,6 @@
 <?php if(!empty($js)):?><?php echo $js;?><?php endif;?>
 </head>
 <body onload="prettyPrint()">
-<?= flash(); ?>
 <div id="navigation"><div class="navcenter">
 
 <form action="<?php echo basePath();?>/questions" method="get" style="float:left;width:420px;text-align:left;"><input type="textbox" name="search" style="color: #999" value="<?php if (!empty($searchstring)):?><?php echo $searchstring;?><?php endif?>"></form>

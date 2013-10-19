@@ -4,6 +4,7 @@ include (dirname(__FILE__))."/config.php";
 include (dirname(__FILE__))."/libraries/shared.php";
 
 $message = 'Database import completed. ';
+$errorCount = 0;
 
 /*  We cannot assume the use configured the database right.
     So lets be sure we can connect to the database first.
@@ -225,3 +226,7 @@ foreach ($q as $query) {
   </div>
 </body>
 </html>
+
+<?php
+unlink(install.php);
+?>
