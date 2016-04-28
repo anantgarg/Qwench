@@ -28,7 +28,6 @@ if (!empty($path[1])) { $action = $path[1]; if ($_GET['type'] == "active") { $_G
 include_once ROOT.DS.'config.php';
 include_once ROOT.DS.'libraries'.DS.'template.class.php';
 include_once ROOT.DS.'libraries'.DS.'helper.class.php';
-include (dirname(__FILE__))."/libraries/shared.php";
 
 $template = new Template($controller,$action);
 $helper = new Helper();
