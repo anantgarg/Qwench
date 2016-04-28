@@ -1,7 +1,11 @@
 <?php
 
 include (dirname(__FILE__))."/config.php";
-include (dirname(__FILE__))."/libraries/shared.php";
+
+function db() {
+	$dbh = mysql_connect(SERVERNAME.':'.SERVERPORT,DBUSERNAME,DBPASSWORD);
+	return mysql_selectdb(DBNAME,$dbh);
+}
 
 $message = 'Database import completed. ';
 $errorCount = 0;
