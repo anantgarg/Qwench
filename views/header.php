@@ -25,7 +25,7 @@
 
 <form action="<?php echo basePath();?>/questions" method="get" style="float:left;width:420px;text-align:left;"><input type="textbox" name="search" style="color: #999" value="<?php if (!empty($searchstring)):?><?php echo $searchstring;?><?php endif?>"></form>
 
-<div style="float:right;border-left: 1px solid #13a1c9;border-right: 1px solid #45c9e9;"><ol><li><a href="<?php echo basePath();?>">Home</a></li><li><a href="<?php echo basePath();?>/questions">Questions</a></li><li><a href="<?php echo basePath();?>/tags">Tags</a></li><li><a href="<?php echo basePath();?>/users">Users</a></li><li><a href="<?php echo basePath();?>/questions?type=unanswered">Unanswered</a></li><li><a href="<?php echo basePath();?>/questions/ask">Ask or Contribute</a></li></ol></div>
+<div style="float:right;border-left: 1px solid #13a1c9;border-right: 1px solid #45c9e9;"><ol><li><a href="<?php echo basePath();?>/">Home</a></li><li><a href="<?php echo basePath();?>/questions">Questions</a></li><li><a href="<?php echo basePath();?>/tags">Tags</a></li><li><a href="<?php echo basePath();?>/users">Users</a></li><li><a href="<?php echo basePath();?>/questions?type=unanswered">Unanswered</a></li><li><a href="<?php echo basePath();?>/questions/ask">Ask or Contribute</a></li></ol></div>
 
 </div>
 <div style="clear:both"></div>
