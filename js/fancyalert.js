@@ -35,18 +35,22 @@ THE SOFTWARE.
 			$('body').append(html);
 		} 
 		$alert = $('#alert');
-			if($alert.length) {
-				var alerttimer = window.setTimeout(function () {
-					$alert.trigger('click');
-				}, 3000);
-				$alert.css('border-bottom','2px solid #76e3ff');
-				$alert.animate({height: $alert.css('line-height') || '50px'}, 200)
-				.click(function () {
-					window.clearTimeout(alerttimer);
-					$alert.animate({height: '0'}, 200);
-					$alert.css('border-bottom','0px solid #333333');
-				});
-			}
+		if($alert.length) {
+			var alerttimer = window.setTimeout(function () {
+				$alert.trigger('click');
+			}, 3000);
+			$alert.css('border-bottom','2px solid #76e3ff');
+			$alert.animate({
+				height: $alert.css('line-height') || '50px'
+				}, 200)
+			.click(function () {
+				window.clearTimeout(alerttimer);
+				$alert.animate({
+					height: '0'
+				}, 200);
+				$alert.css('border-bottom','0px solid #333333');
+			});
+		}
 	};   
   
 })(jQuery);

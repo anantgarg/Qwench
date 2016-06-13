@@ -1,12 +1,12 @@
 
 .wmd-panel
 {
- 
+
 }
 
 #wmd-editor
 {
- 
+
 }
 
 #wmd-button-bar 
@@ -14,7 +14,7 @@
 	width: 100%;
 	padding-top: 5px;
 	padding-bottom: 5px;
- 
+
 }
 
 #wmd-input 
@@ -31,7 +31,7 @@
 { 
 	overflow: auto;
 	background-color: #EFFCFF;
-	width: 633px;  
+	width: 633px;
 	padding: 15px;
 }
 
@@ -42,51 +42,51 @@
 
 #wmd-button-row 
 {
-	position: relative; 
+	position: relative;
 	margin-left: 5px;
 	margin-right: 5px;
 	margin-bottom: 5px;
 	margin-top: 10px;
-	padding: 0px;  
+	padding: 0px;
 	height: 20px;
 }
 
 .wmd-spacer
 {
-	width: 1px; 
-	height: 20px; 
+	width: 1px;
+	height: 20px;
 	margin-left: 14px;
-	
+
 	position: absolute;
 	background-color: #fff;
-	display: inline-block; 
+	display: inline-block;
 	list-style: none;
 }
 
 .wmd-button
 {
-	width: 20px; 
-	height: 20px; 
+	width: 20px;
+	height: 20px;
 	margin-left: 5px;
 	margin-right: 5px;
-	
+
 	position: absolute;
 	background-image: url(../img/wmd-buttons.png);
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
-	display: inline-block; 
+	display: inline-block;
 	list-style: none;
 }
 
 .wmd-button > a
 {
-	width: 20px; 
-	height: 20px; 
+	width: 20px;
+	height: 20px;
 	margin-left: 5px;
 	margin-right: 5px;
-	
+
 	position: absolute;
-	display: inline-block; 
+	display: inline-block;
 }
 
 
@@ -133,7 +133,7 @@
 
 .wmd-prompt-dialog > form > input[type="button"]{
 	border: 1px solid #888888;
-	font-family: trebuchet MS, helvetica, sans-serif;
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	font-size: 0.8em;
 	font-weight: bold;
 }
