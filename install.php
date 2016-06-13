@@ -283,7 +283,7 @@ elseif(isset($_POST['doconfig']))
 	}
 
 	$base_path = "define('BASE_PATH',BASE_DIR);";
-	if($_POST['base_path'] == "on")
+	if(isset($_POST['base_path']))
 	{
 		$base_path = "define('BASE_PATH',BASE_DIR.'/index.php');";
 	}
