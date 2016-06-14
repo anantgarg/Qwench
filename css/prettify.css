@@ -1,11 +1,11 @@
 /* Pretty printing styles. Used with prettify.js. */
 
 .str { color: #080; }
-.kwd { color: #075c70; }
+.kwd { color: #1E669C; }
 .com { color: #800; }
 .typ { color: #606; }
 .lit { color: #066; }
-.pun { color: #16bae2; }
+.pun { color: #A918E2; }
 .pln { color: #000; }
 .tag { color: #008; }
 .atn { color: #606; }
