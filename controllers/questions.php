@@ -443,8 +443,6 @@ function view() {
 
 	$template->set('answers',$answers);
 
-	$basePathNS = basePathNS();
-
 	$js = '';
 
 	if ($_SESSION['userid'] != '') {

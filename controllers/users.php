@@ -56,6 +56,40 @@ function update() {
 	header("Location: ".BASE_PATH."/users/view/{$_SESSION['userid']}/$slug");
 }
 
+function validate() {
+	$email = sanitize($_POST['email'],"email");
+	$password = sanitize($_POST['password'],"string");
+	$password = sha1(SALT.$password.$email);
+
+	$sql = ("SELECT * FROM users WHERE email = '".escape($email)."' AND active='1' AND password = '".escape($password)."'");
+	$query = mysql_query($sql);
+	$user = mysql_fetch_array($query);
+
+	if ($user['id'] > 0) {
+		$_SESSION['userid'] = $user['id'];
+		$_SESSION['name'] = $user['name'];
+		$_SESSION['email'] = $user['email'];
+		$_SESSION['password'] = $user['password'];
+		$_SESSION['points'] = $user['points'];
+		$_SESSION['moderator'] = $user['moderator'];
+		$_SESSION['location'] = $user['location'];
+		$_SESSION['realname'] = $user['realname'];
+		$_SESSION['aboutme'] = $user['aboutme'];
+
+		$sql = ("UPDATE users SET lastactivity = '".escape(date("Y-m-d H:i:s"))."' WHERE id = '".escape($_SESSION['userid'])."'");
+		$query = mysql_query($sql);
+
+		if (!empty($_POST['returnurl'])) {
+			$url = sanitize($_POST['returnurl'],"url");
+			header("Location: {$url}");
+		}  else {
+			header("Location: ".BASE_PATH);
+		}
+	} else {
+		header("Location: ".BASE_PATH."/users/login");
+	}
+}
+
 function register() {
 	global $template;
 

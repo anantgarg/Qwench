@@ -46,7 +46,6 @@
 <?php
 if(isset($_POST['dodatabase'])) {
 	include (dirname(__FILE__))."/config.php";
-	//include (dirname(__FILE__))."/libraries/shared.php";
 	
 	$body = '';
 	$path = '';
@@ -65,7 +64,7 @@ if(isset($_POST['dodatabase'])) {
 
     if (db() == false)
     {
-		die('Error connecting to the database. <br/>  Please edit the config.php file to match you database settings.');
+		die('<br />Error connecting to the database. <br/>  Please go back and check your configuration.');
     }
 
 $content = <<<EOD
@@ -329,6 +328,8 @@ define(\'MAILFROM\',\''.$_POST['mailfrom'].'\');
 
 define(\'SITETITLE\',\''.$_POST['title'].'\');
 
+//Set this to 0 for production mode.
+define(\'DEBUG_MODE\',\'1\');
 
 //To use reCAPTCHA you must get an API key from 
 //http://recaptcha.net/api/getkey
